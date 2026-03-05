@@ -14,23 +14,25 @@ const dropdownClass = ({ isActive }: { isActive: boolean }) =>
   }`;
 
 const SiteLayout = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isMoreOpen, setIsMoreOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDesktopMoreOpen, setIsDesktopMoreOpen] = useState(false);
+  const [isMobileMoreOpen, setIsMobileMoreOpen] = useState(false);
   const moreButtonRef = useRef<HTMLButtonElement | null>(null);
   const moreMenuRef = useRef<HTMLDivElement | null>(null);
   const location = useLocation();
 
   useEffect(() => {
-    setIsOpen(false);
-    setIsMoreOpen(false);
+    setIsMobileMenuOpen(false);
+    setIsDesktopMoreOpen(false);
+    setIsMobileMoreOpen(false);
   }, [location.pathname]);
 
   useEffect(() => {
-    if (!isMoreOpen) {
+    if (!isDesktopMoreOpen) {
       return;
     }
 
-    const closeMenu = () => setIsMoreOpen(false);
+    const closeMenu = () => setIsDesktopMoreOpen(false);
 
     const handlePointerDown = (event: MouseEvent | TouchEvent) => {
       const target = event.target as Node;
@@ -67,7 +69,20 @@ const SiteLayout = () => {
       window.removeEventListener('resize', handleViewportChange);
       document.removeEventListener('keydown', handleEscape);
     };
-  }, [isMoreOpen]);
+  }, [isDesktopMoreOpen]);
+
+  useEffect(() => {
+    if (!isMobileMenuOpen) {
+      return;
+    }
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [isMobileMenuOpen]);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -244,9 +259,19 @@ const SiteLayout = () => {
 
           <button
             type="button"
-            onClick={() => setIsOpen((prev) => !prev)}
+            onClick={() => {
+              setIsMobileMenuOpen((prev) => {
+                const next = !prev;
+
+                if (!next) {
+                  setIsMobileMoreOpen(false);
+                }
+
+                return next;
+              });
+            }}
             className="rounded-full border border-field-200 px-3 py-2 text-xs font-semibold uppercase tracking-[0.15em] text-field-800 mobile:px-4 tablet-large:hidden"
-            aria-expanded={isOpen}
+            aria-expanded={isMobileMenuOpen}
             aria-label="Apri menu"
           >
             Menu
@@ -264,21 +289,26 @@ const SiteLayout = () => {
                 type="button"
                 ref={moreButtonRef}
                 className="rounded-full border border-field-200 bg-white px-4 py-2 text-sm font-semibold uppercase tracking-[0.12em] text-field-800 transition hover:border-field-300"
-                onClick={() => setIsMoreOpen((prev) => !prev)}
-                aria-expanded={isMoreOpen}
+                onClick={() => setIsDesktopMoreOpen((prev) => !prev)}
+                aria-expanded={isDesktopMoreOpen}
                 aria-controls="menu-altro-desktop"
                 aria-label="Apri menu altro"
               >
                 Altro
               </button>
-              {isMoreOpen ? (
+              {isDesktopMoreOpen ? (
                 <div
                   id="menu-altro-desktop"
                   ref={moreMenuRef}
                   className="absolute right-0 top-[calc(100%+0.5rem)] z-[140] min-w-[18rem] max-w-[22rem] overflow-x-hidden overflow-y-auto overscroll-contain rounded-2xl border border-field-200 bg-white p-2 shadow-[0_26px_42px_-22px_rgba(20,31,26,0.45)] max-h-[min(70vh,28rem)]"
                 >
                   {extraNavItems.map((item) => (
-                    <NavLink key={item.path} to={item.path} className={dropdownClass} onClick={() => setIsMoreOpen(false)}>
+                    <NavLink
+                      key={item.path}
+                      to={item.path}
+                      className={dropdownClass}
+                      onClick={() => setIsDesktopMoreOpen(false)}
+                    >
                       {item.label}
                     </NavLink>
                   ))}
@@ -288,7 +318,7 @@ const SiteLayout = () => {
           </nav>
         </div>
 
-        {isOpen ? (
+        {isMobileMenuOpen ? (
           <nav className="border-t border-field-100 px-3 py-3 mobile-small:px-4 mobile-small:py-4 tablet-large:hidden">
             <div className="mx-auto grid max-w-7xl gap-2">
               {mainNavItems.map((item) => (
@@ -296,7 +326,10 @@ const SiteLayout = () => {
                   key={item.path}
                   to={item.path}
                   className={navClass}
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    setIsMobileMoreOpen(false);
+                  }}
                 >
                   {item.label}
                 </NavLink>
@@ -305,14 +338,14 @@ const SiteLayout = () => {
               <div className="rounded-2xl border border-field-100 bg-white/80 p-3">
                 <button
                   type="button"
-                  onClick={() => setIsMoreOpen((prev) => !prev)}
-                  aria-expanded={isMoreOpen}
+                  onClick={() => setIsMobileMoreOpen((prev) => !prev)}
+                  aria-expanded={isMobileMoreOpen}
                   aria-controls="menu-altro-mobile"
                   className="w-full text-left text-sm font-semibold uppercase tracking-[0.12em] text-field-800"
                 >
                   Altro
                 </button>
-                {isMoreOpen ? (
+                {isMobileMoreOpen ? (
                   <div
                     id="menu-altro-mobile"
                     className="mt-3 grid max-h-[40vh] gap-2 overflow-y-auto overscroll-contain pr-1"
@@ -323,8 +356,8 @@ const SiteLayout = () => {
                         to={item.path}
                         className={navClass}
                         onClick={() => {
-                          setIsMoreOpen(false);
-                          setIsOpen(false);
+                          setIsMobileMoreOpen(false);
+                          setIsMobileMenuOpen(false);
                         }}
                       >
                         {item.label}
@@ -337,6 +370,18 @@ const SiteLayout = () => {
           </nav>
         ) : null}
       </header>
+
+      {isMobileMenuOpen ? (
+        <button
+          type="button"
+          aria-label="Chiudi menu"
+          onClick={() => {
+            setIsMobileMenuOpen(false);
+            setIsMobileMoreOpen(false);
+          }}
+          className="fixed inset-0 z-[115] bg-field-900/20 backdrop-blur-[1px] tablet-large:hidden"
+        />
+      ) : null}
 
       <main className="mx-auto w-full max-w-7xl px-3 py-6 mobile-small:px-4 mobile-small:py-8 mobile:px-5 sm:px-6 sm:py-10 tablet-large:px-8 desktop:py-12">
         <Outlet />
