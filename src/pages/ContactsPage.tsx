@@ -1,5 +1,6 @@
 import SectionTitle from '../components/SectionTitle';
-import { contacts, documents } from '../data/siteData';
+import { documents } from '../data/documentsData';
+import { contacts } from '../data/navigationData';
 import { usePageTitle } from '../hooks/usePageTitle';
 
 const ContactsPage = () => {

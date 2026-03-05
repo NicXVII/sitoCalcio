@@ -5,7 +5,7 @@ import {
   historyFoundingDate,
   historyMilestones,
   historyNotes
-} from '../data/siteData';
+} from '../data/historyData';
 import { usePageTitle } from '../hooks/usePageTitle';
 
 const HistoryPage = () => {

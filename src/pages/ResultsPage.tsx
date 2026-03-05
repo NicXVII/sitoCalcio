@@ -1,5 +1,5 @@
 import SectionTitle from '../components/SectionTitle';
-import { agonisticTeams, nonAgonisticTeams } from '../data/siteData';
+import { agonisticTeams, nonAgonisticTeams } from '../data/teamsData';
 import { usePageTitle } from '../hooks/usePageTitle';
 
 type ResultCardProps = {

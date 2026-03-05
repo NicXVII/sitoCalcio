@@ -1,0 +1,85 @@
+import type { HistoryMilestone, TimelineItem } from './types';
+
+export const timeline: TimelineItem[] = [
+  {
+    year: '1972',
+    event: 'Costituzione del Circolo Sportivo DOMIO davanti al Notaio Giovanni Tomasi a Trieste.'
+  },
+  {
+    year: '1976',
+    event: 'Costruzione del primo campo sportivo grazie ai soci e al supporto di Radovic Stanislao.'
+  },
+  {
+    year: '1985',
+    event: 'Perdita del campo per la Grande Viabilita di Trieste e trasferimento temporaneo.'
+  },
+  {
+    year: '1999-2000',
+    event: 'Prima storica partecipazione al campionato di Promozione.'
+  },
+  {
+    year: '2000-2001',
+    event: 'Intitolazione ufficiale del campo a Marino Barut e dedicazione del bassorilievo.'
+  }
+];
+
+export const historyFoundingDate =
+  "22 maggio 1972, Trieste - costituzione del Circolo Sportivo DOMIO davanti all'Avv. Dott. Giovanni Tomasi, Notaio.";
+
+export const historyFounders = [
+  'Livio Nardin',
+  'Luciano Hervatich',
+  'Giordano Kral',
+  'Rodolfo Cendak',
+  'Gino (detto Marino) Barut',
+  'Arduino Giacomini',
+  'Olivio Bertesina',
+  'Gino Bertesina',
+  'Antonio Bersenda',
+  'Giordano Bigotto',
+  'Emilio Comari',
+  'Claudio Stefani',
+  'Ferruccio Mauro',
+  'Sergio Martinotti',
+  'Celestino Bersenda',
+  'Dionisio Zocchi',
+  'Vegliach Delio'
+];
+
+export const historyMilestones: HistoryMilestone[] = [
+  {
+    year: '1972-1973',
+    title: 'Fondazione e primi campionati',
+    text: "Nei primi anni il Circolo partecipa alla Terza Categoria. Gia nel 1973 nasce la prima squadra del settore giovanile, iscritta al campionato Allievi, e il vivaio inizia a crescere in modo significativo."
+  },
+  {
+    year: '1976',
+    title: 'Il primo campo del Domio',
+    text: 'Con grandi sacrifici dei soci e con il supporto di Radovic Stanislao (Stanko), la societa costruisce il proprio campo sportivo.'
+  },
+  {
+    year: '1985',
+    title: 'La perdita del campo',
+    text: "Il campo viene sacrificato per la costruzione della Grande Viabilita di Trieste. La societa non si ferma e si trasferisce temporaneamente sul campo comunale di San Dorligo della Valle."
+  },
+  {
+    year: 'Anni successivi',
+    title: 'Ricostruzione e rilancio',
+    text: "Con tenacia, macchinari e operai messi a disposizione da Stanko e dalla ditta MOVITER, su terreni concessi dal Comune di San Dorligo e dall'Ente Zona Industriale, nasce l'attuale campo sportivo. Parallelamente viene ricostruito da zero un settore giovanile di alto livello, con il contributo concreto dell'amico Lando Strain."
+  },
+  {
+    year: '1998-2000',
+    title: 'Memoria e traguardi storici',
+    text: "Nel 1998 la societa perde prematuramente il presidente e socio fondatore Marino Barut. Nel suo ricordo prosegue il progetto sportivo e nel 1999-2000 arriva, per la prima volta, la Promozione, insieme a inserimenti di giovani atleti in squadre professionistiche."
+  },
+  {
+    year: '2000-2001',
+    title: 'Intitolazioni e torneo internazionale',
+    text: 'Il 20 aprile 2000 il campo viene ufficialmente intitolato a Marino Barut. Nello stesso periodo nasce il Torneo internazionale giovanile (prima edizione 21-22 aprile 2000). Il 7 aprile 2001 viene dedicato a Marino Barut anche il bassorilievo posto nella parte antistante il campo.'
+  }
+];
+
+export const historyNotes = [
+  'Il titolo del giornale locale all epoca della perdita del campo fu: "QUEL PASTICCIACCIO BRUTTO DEL CAMPO DOMIO".',
+  'Il Circolo Sportivo DOMIO e stato affiliato anche alla Federazione ciclistica e alla Federazione bocciofila.'
+];

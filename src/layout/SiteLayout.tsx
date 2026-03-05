@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
-import { contacts, extraNavItems, mainNavItems } from '../data/siteData';
+import ClubLogo from '../components/ClubLogo';
+import { contacts, extraNavItems, mainNavItems } from '../data/navigationData';
 
 const navClass = ({ isActive }: { isActive: boolean }) =>
   `rounded-full px-4 py-2 text-sm font-semibold uppercase tracking-[0.12em] transition ${
@@ -24,19 +25,33 @@ const SiteLayout = () => {
 
   useEffect(() => {
     const root = document.documentElement;
-    const navInfo = navigator as Navigator & { deviceMemory?: number };
+    const navInfo = navigator as Navigator & {
+      deviceMemory?: number;
+      connection?: { saveData?: boolean; effectiveType?: string };
+    };
     const supportsFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const compactViewport = window.matchMedia('(max-width: 1200px)').matches;
+    const memoryCores =
+      (typeof navInfo.deviceMemory === 'number' && navInfo.deviceMemory <= 6) ||
+      (typeof navigator.hardwareConcurrency === 'number' && navigator.hardwareConcurrency <= 8);
     const lowPowerDevice =
       (typeof navInfo.deviceMemory === 'number' && navInfo.deviceMemory <= 4) ||
       (typeof navigator.hardwareConcurrency === 'number' && navigator.hardwareConcurrency <= 4);
+    const saveData = navInfo.connection?.saveData === true;
+    const networkType = navInfo.connection?.effectiveType;
+    const slowNetwork = networkType === 'slow-2g' || networkType === '2g';
+    const disableInteractiveEffects =
+      !supportsFinePointer || reduceMotion || compactViewport || lowPowerDevice || saveData || slowNetwork;
 
-    root.classList.toggle('effects-lite', lowPowerDevice);
+    root.classList.toggle('effects-off', disableInteractiveEffects);
+    root.classList.toggle('effects-lite', !disableInteractiveEffects && memoryCores);
+    root.style.setProperty('--mouse-active', '0');
+    root.style.setProperty('--trail-active', '0');
 
-    if (!supportsFinePointer || reduceMotion) {
-      root.style.setProperty('--mouse-active', '0');
-      root.style.setProperty('--trail-active', '0');
+    if (disableInteractiveEffects) {
       return () => {
+        root.classList.remove('effects-off');
         root.classList.remove('effects-lite');
       };
     }
@@ -51,9 +66,16 @@ const SiteLayout = () => {
     let currentIntensity = 0;
     let trailIntensity = 0;
     let rafId = 0;
-    const pointerEase = lowPowerDevice ? 0.22 : 0.18;
-    const trailEase = lowPowerDevice ? 0.2 : 0.11;
-    const maxIntensity = lowPowerDevice ? 0.8 : 0.94;
+    const pointerEase = memoryCores ? 0.22 : 0.18;
+    const trailEase = memoryCores ? 0.2 : 0.11;
+    const maxIntensity = memoryCores ? 0.84 : 0.94;
+
+    const stopRender = () => {
+      if (rafId !== 0) {
+        window.cancelAnimationFrame(rafId);
+        rafId = 0;
+      }
+    };
 
     const renderGlow = () => {
       renderX += (pointerX - renderX) * pointerEase;
@@ -85,12 +107,22 @@ const SiteLayout = () => {
     };
 
     const requestRender = () => {
-      if (rafId === 0) {
+      if (!document.hidden && rafId === 0) {
         rafId = window.requestAnimationFrame(renderGlow);
       }
     };
 
-    const handleMove = (event: MouseEvent) => {
+    const shouldSkipEffects = () => window.innerWidth <= 1200;
+
+    const handleMove = (event: PointerEvent) => {
+      if (shouldSkipEffects()) {
+        targetIntensity = 0;
+        root.style.setProperty('--mouse-active', '0');
+        root.style.setProperty('--trail-active', '0');
+        stopRender();
+        return;
+      }
+
       pointerX = event.clientX;
       pointerY = event.clientY;
       targetIntensity = maxIntensity;
@@ -98,6 +130,10 @@ const SiteLayout = () => {
     };
 
     const handleEnter = () => {
+      if (shouldSkipEffects()) {
+        return;
+      }
+
       targetIntensity = maxIntensity;
       requestRender();
     };
@@ -107,6 +143,17 @@ const SiteLayout = () => {
       requestRender();
     };
 
+    const handleVisibility = () => {
+      if (document.hidden) {
+        targetIntensity = 0;
+        currentIntensity = 0;
+        trailIntensity = 0;
+        root.style.setProperty('--mouse-active', '0');
+        root.style.setProperty('--trail-active', '0');
+        stopRender();
+      }
+    };
+
     root.style.setProperty('--mouse-x', `${pointerX}px`);
     root.style.setProperty('--mouse-y', `${pointerY}px`);
     root.style.setProperty('--trail-x', `${trailX}px`);
@@ -114,19 +161,20 @@ const SiteLayout = () => {
     root.style.setProperty('--mouse-active', '0');
     root.style.setProperty('--trail-active', '0');
 
-    window.addEventListener('mousemove', handleMove, { passive: true });
-    window.addEventListener('mouseenter', handleEnter);
-    window.addEventListener('mouseleave', handleLeave);
+    window.addEventListener('pointermove', handleMove, { passive: true });
+    window.addEventListener('pointerenter', handleEnter);
+    window.addEventListener('pointerleave', handleLeave);
+    document.addEventListener('visibilitychange', handleVisibility);
 
     return () => {
-      if (rafId !== 0) {
-        window.cancelAnimationFrame(rafId);
-      }
-      window.removeEventListener('mousemove', handleMove);
-      window.removeEventListener('mouseenter', handleEnter);
-      window.removeEventListener('mouseleave', handleLeave);
+      stopRender();
+      window.removeEventListener('pointermove', handleMove);
+      window.removeEventListener('pointerenter', handleEnter);
+      window.removeEventListener('pointerleave', handleLeave);
+      document.removeEventListener('visibilitychange', handleVisibility);
       root.style.setProperty('--mouse-active', '0');
       root.style.setProperty('--trail-active', '0');
+      root.classList.remove('effects-off');
       root.classList.remove('effects-lite');
     };
   }, []);
@@ -136,9 +184,10 @@ const SiteLayout = () => {
       <header className="sticky top-0 z-[120] overflow-visible border-b border-field-100 bg-white/90 backdrop-blur">
         <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-3 px-3 py-3 mobile-small:px-4 mobile-small:py-4 mobile:px-5 sm:px-6 tablet-large:px-8">
           <div className="flex items-center gap-2 mobile-small:gap-3 sm:gap-4">
-            <img
-              src="/logo.png"
+            <ClubLogo
               alt="Logo A.S.D. Domio Calcio"
+              loading="eager"
+              fetchPriority="high"
               className="h-12 w-12 rounded-xl border border-field-200 bg-white p-1 object-contain shadow-sm mobile-small:h-14 mobile-small:w-14 sm:h-16 sm:w-16"
             />
             <div>

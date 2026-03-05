@@ -1,6 +1,7 @@
 import SectionTitle from '../components/SectionTitle';
 import TeamCard from '../components/TeamCard';
-import { academyTeams, documents } from '../data/siteData';
+import { documents } from '../data/documentsData';
+import { academyTeams } from '../data/teamsData';
 import { usePageTitle } from '../hooks/usePageTitle';
 
 const SchoolPage = () => {

@@ -1,6 +1,6 @@
 import SectionTitle from '../components/SectionTitle';
 import TeamCard from '../components/TeamCard';
-import { firstTeams } from '../data/siteData';
+import { firstTeams } from '../data/teamsData';
 import { usePageTitle } from '../hooks/usePageTitle';
 
 const FirstTeamsPage = () => {

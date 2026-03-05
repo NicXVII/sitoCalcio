@@ -130,6 +130,28 @@ a {
   filter: blur(20px);
 }
 
+:root.effects-off body {
+  animation: none;
+  background-size: 120% 120%, 120% 120%, 140% 140%;
+}
+
+:root.effects-off .interactive-metal-bg::before,
+:root.effects-off .interactive-metal-bg::after {
+  display: none;
+}
+
+:root.effects-off .surface-card {
+  background-color: rgba(255, 255, 255, 0.92);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+:root.effects-off .surface-panel {
+  background-color: rgba(255, 255, 255, 0.88);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
 @keyframes revealUp {
   from {
     opacity: 0;
@@ -157,9 +179,14 @@ a {
   }
 }
 
-@media (hover: none), (pointer: coarse), (max-width: 1024px) {
+@media (hover: none), (pointer: coarse), (max-width: 1200px) {
   body {
     animation: none;
+  }
+
+  .interactive-metal-bg::before,
+  .interactive-metal-bg::after {
+    display: none;
   }
 
   .surface-card {

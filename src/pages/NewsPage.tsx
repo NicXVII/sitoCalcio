@@ -1,5 +1,5 @@
 import SectionTitle from '../components/SectionTitle';
-import { newsHighlights } from '../data/siteData';
+import { newsHighlights } from '../data/newsData';
 import { usePageTitle } from '../hooks/usePageTitle';
 
 const NewsPage = () => {

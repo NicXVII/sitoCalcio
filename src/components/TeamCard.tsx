@@ -1,4 +1,4 @@
-import type { Team } from '../data/siteData';
+import type { Team } from '../data/types';
 
 type TeamCardProps = {
   team: Team;

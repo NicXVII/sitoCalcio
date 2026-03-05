@@ -1,7 +1,7 @@
 import SectionTitle from '../components/SectionTitle';
 import TeamCard from '../components/TeamCard';
 import { usePageTitle } from '../hooks/usePageTitle';
-import { youthTeams } from '../data/siteData';
+import { youthTeams } from '../data/teamsData';
 
 const YouthSectorPage = () => {
   usePageTitle('Settore Giovanile');

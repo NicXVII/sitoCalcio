@@ -1,5 +1,5 @@
 import SectionTitle from '../components/SectionTitle';
-import { sponsors } from '../data/siteData';
+import { sponsors } from '../data/sponsorsData';
 import { usePageTitle } from '../hooks/usePageTitle';
 
 const mainSponsors = sponsors.filter((sponsor) => sponsor.tier === 'main');
@@ -40,8 +40,11 @@ const SponsorsPage = () => {
                   <img
                     src={sponsor.logo}
                     alt={`Logo ${sponsor.name}`}
+                    width={320}
+                    height={160}
                     loading="lazy"
                     decoding="async"
+                    fetchPriority="low"
                     className="max-h-full w-full object-contain transition duration-300 group-hover:scale-[1.02]"
                   />
                 ) : (
@@ -81,8 +84,11 @@ const SponsorsPage = () => {
                   <img
                     src={sponsor.logo}
                     alt={`Logo ${sponsor.name}`}
+                    width={320}
+                    height={160}
                     loading="lazy"
                     decoding="async"
+                    fetchPriority="low"
                     className="max-h-full w-full object-contain transition duration-300 group-hover:scale-[1.03]"
                   />
                 ) : (

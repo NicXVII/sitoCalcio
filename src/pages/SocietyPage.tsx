@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import SectionTitle from '../components/SectionTitle';
-import { timeline } from '../data/siteData';
+import { timeline } from '../data/historyData';
 import { usePageTitle } from '../hooks/usePageTitle';
 
 const SocietyPage = () => {

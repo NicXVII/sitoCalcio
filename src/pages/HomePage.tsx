@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
+import ClubLogo from '../components/ClubLogo';
 import SectionTitle from '../components/SectionTitle';
-import { newsHighlights, values } from '../data/siteData';
+import { newsHighlights, values } from '../data/newsData';
 import { usePageTitle } from '../hooks/usePageTitle';
 
 const HomePage = () => {
@@ -42,9 +43,10 @@ const HomePage = () => {
 
           <div className="grid gap-4 rounded-2xl border border-field-100 bg-field-50/70 p-4 mobile-small:p-5">
             <div className="surface-panel flex items-center gap-3 rounded-xl border p-3 mobile-small:p-4">
-              <img
-                src="/logo.png"
+              <ClubLogo
                 alt="Logo Domio Calcio"
+                loading="eager"
+                fetchPriority="low"
                 className="h-14 w-14 rounded-xl border border-field-200 bg-white p-1 object-contain"
               />
               <div>
