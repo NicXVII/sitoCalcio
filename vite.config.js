@@ -8,7 +8,7 @@ export default defineConfig({
         rollupOptions: {
             output: {
                 manualChunks: function (id) {
-                    if (id.includes('node_modules/react-router') || id.includes('node_modules/@remix-run')) {
+                    if (id.indexOf('node_modules/react-router') !== -1 || id.indexOf('node_modules/@remix-run') !== -1) {
                         return 'router-vendor';
                     }
                     return undefined;

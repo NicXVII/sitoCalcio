@@ -1,37 +1,43 @@
-# A.S.D. Domio Calcio - Nuovo Sito (React + Tailwind)
+# A.S.D. Domio Calcio - Sito Ufficiale
 
-Nuova base web scalabile costruita su React, TypeScript e Tailwind CSS, progettata a partire dal report di analisi del 5 marzo 2026.
+Sito web ufficiale di A.S.D. Domio Calcio, sviluppato come piattaforma moderna, responsive e orientata alle famiglie, agli atleti e ai partner del club.
 
-## Obiettivi implementati
+## Funzione del progetto
 
-- Nuova architettura menu con pagine chiare e navigazione moderna.
-- Inserimento squadra **3a Categoria** nelle Prime Squadre.
-- Sezione dedicata **Tutela Minori / Safeguarding**.
-- Struttura pronta per **rose, calendari, risultati e classifiche** per categoria.
-- Sezione **Scuola Calcio** con categorie complete (inclusi Piccoli Amici).
-- Contenuti aggiornati alla stagione **2025/2026**.
-- Design responsive, palette verde/bianco, UI gerarchica e orientata alla user experience.
+Il progetto fornisce un unico punto di accesso per:
 
-## Stack
+- presentazione societaria e storia del club;
+- gestione delle sezioni sportive (prime squadre, settore giovanile, scuola calcio);
+- comunicazione news e aggiornamenti stagione;
+- area sponsor con loghi ottimizzati;
+- contatti, modulistica e sezione tutela minori/safeguarding.
+
+## Caratteristiche principali
+
+- Navigazione completa con menu principale + sezione `Altro`.
+- Routing client-side con pagine dedicate per ogni area del sito.
+- Struttura dati modulare (`news`, `teams`, `history`, `sponsors`, `documents`, `navigation`).
+- Code splitting per route (`React.lazy` + `Suspense`) per ridurre il carico iniziale.
+- Interfaccia responsive con breakpoint personalizzati Tailwind.
+- Ottimizzazioni performance:
+  - chunking Vite per librerie di routing;
+  - logo ottimizzato in WebP con fallback PNG;
+  - immagini sponsor lazy-loaded con `decoding="async"`;
+  - effetti visuali adattivi disattivati automaticamente su dispositivi meno performanti.
+
+## Tecnologie usate
 
 - React 18
 - React Router DOM 6
-- TypeScript
+- TypeScript 5
 - Vite 5
 - Tailwind CSS 3
+- PostCSS + Autoprefixer
 
-## Base Responsive
+## Requisiti
 
-Breakpoints semantici configurati in Tailwind:
-
-- `base` (fino a 359px): piccoli smartphone
-- `mobile-small` (>= 360px): smartphone compatti
-- `mobile` (>= 430px): smartphone standard/grandi
-- `tablet-small` (>= 768px): tablet piccoli
-- `tablet-large` (>= 1024px): tablet grandi / piccoli laptop
-- `desktop` (>= 1280px): schermi desktop
-
-I componenti principali (`SiteLayout`, `SectionTitle`, `TeamCard`, `HomePage`) sono stati aggiornati con questa base responsive.
+- Node.js 18+
+- npm 9+
 
 ## Avvio locale
 
@@ -40,25 +46,34 @@ npm install
 npm run dev
 ```
 
-## Build produzione
+Server di sviluppo: `http://localhost:5173`
+
+## Build e preview produzione
 
 ```bash
 npm run build
 npm run preview
 ```
 
-## Struttura principale
+## Script disponibili
 
-- `src/layout/SiteLayout.tsx`: header, navigazione, footer.
-- `src/data/siteData.ts`: dati centralizzati per squadre, news, valori, sponsor, documenti.
-- `src/pages/*`: pagine sezionali del sito.
-- `src/components/*`: componenti riusabili.
+- `npm run dev`: avvio ambiente di sviluppo.
+- `npm run build`: type-check + build produzione.
+- `npm run preview`: anteprima locale della build.
 
-## Integrazioni pronte
+## Struttura progetto
 
-- Area placeholder per widget FIGC/LND in `Prime Squadre`.
-- Sezione mappa in `Contatti` pronta per iframe Google Maps/OpenStreetMap.
+- `src/layout/`: layout globale (header, nav, footer).
+- `src/pages/`: pagine del sito.
+- `src/components/`: componenti riusabili UI.
+- `src/data/`: sorgenti dati separate per dominio funzionale.
+- `src/hooks/`: hook condivisi (es. gestione titolo pagina).
+- `public/`: asset statici (logo e sponsor).
 
-## Note ambiente sandbox
+## Breakpoint responsive
 
-Nel sandbox corrente l'installazione dipendenze non completa per limiti rete (`EAI_AGAIN` verso `registry.npmjs.org`). Il codice e la struttura sono comunque pronti all'esecuzione in ambiente con accesso npm.
+- `mobile-small`: `360px`
+- `mobile`: `430px`
+- `tablet-small`: `768px`
+- `tablet-large`: `1024px`
+- `desktop`: `1280px`
