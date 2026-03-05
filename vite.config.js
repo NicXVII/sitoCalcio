@@ -7,9 +7,11 @@ export default defineConfig({
         cssCodeSplit: true,
         rollupOptions: {
             output: {
-                manualChunks: {
-                    'react-vendor': ['react', 'react-dom'],
-                    'router-vendor': ['react-router-dom']
+                manualChunks: function (id) {
+                    if (id.includes('node_modules/react-router') || id.includes('node_modules/@remix-run')) {
+                        return 'router-vendor';
+                    }
+                    return undefined;
                 }
             }
         }
