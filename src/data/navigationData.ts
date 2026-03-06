@@ -3,18 +3,18 @@ import type { ContactInfo, NavItem } from './types';
 export const mainNavItems: NavItem[] = [
   { label: 'Home', path: '/' },
   { label: 'La Societa', path: '/societa' },
+  { label: 'Squadre', path: '/prime-squadre' },
+  { label: 'Settore Giovanile', path: '/settore-giovanile' },
   { label: 'Risultati', path: '/risultati' },
-  { label: 'Sponsor', path: '/sponsor' },
+  { label: 'News', path: '/news' },
   { label: 'Contatti', path: '/contatti' }
 ];
 
 export const extraNavItems: NavItem[] = [
   { label: 'La Nostra Storia', path: '/storia' },
-  { label: 'Prime Squadre', path: '/prime-squadre' },
-  { label: 'Settore Giovanile', path: '/settore-giovanile' },
   { label: 'Scuola Calcio', path: '/scuola-calcio' },
-  { label: 'News', path: '/news' },
   { label: 'Media', path: '/media' },
+  { label: 'Sponsor', path: '/sponsor' },
   { label: 'Tutela Minori', path: '/tutela-minori' }
 ];
 

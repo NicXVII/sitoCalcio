@@ -20,7 +20,8 @@ const SafeguardingPage = () => {
               <strong>Responsabile Safeguarding:</strong> Dott.ssa Sara Gentili
             </li>
             <li>
-              <strong>Email dedicata:</strong> safeguarding@domiocalcio.com
+              <strong>Email dedicata:</strong>{' '}
+              <a href="mailto:safeguarding@domiocalcio.com" className="underline underline-offset-4 hover:text-field-600">safeguarding@domiocalcio.com</a>
             </li>
             <li>
               <strong>Sportello ascolto:</strong> Martedi 18:00 - 19:00

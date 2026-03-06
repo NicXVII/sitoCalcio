@@ -242,6 +242,9 @@ const SiteLayout = () => {
 
   return (
     <div className="interactive-metal-bg min-h-screen bg-gradient-to-b from-field-50 via-white to-field-100/60 text-field-900">
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-full focus:bg-field-600 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white focus:outline-none">
+        Vai al contenuto principale
+      </a>
       <header className="sticky top-0 z-[120] overflow-visible border-b border-field-100 bg-white/90 backdrop-blur">
         <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-3 px-3 py-3 mobile-small:px-4 mobile-small:py-4 mobile:px-5 sm:px-6 tablet-large:px-8">
           <div className="flex items-center gap-2 mobile-small:gap-3 sm:gap-4">
@@ -270,11 +273,15 @@ const SiteLayout = () => {
                 return next;
               });
             }}
-            className="rounded-full border border-field-200 px-3 py-2 text-xs font-semibold uppercase tracking-[0.15em] text-field-800 mobile:px-4 tablet-large:hidden"
+            className="rounded-full border border-field-200 p-2.5 text-field-800 mobile:p-3 tablet-large:hidden"
             aria-expanded={isMobileMenuOpen}
-            aria-label="Apri menu"
+            aria-label={isMobileMenuOpen ? 'Chiudi menu' : 'Apri menu'}
           >
-            Menu
+            {isMobileMenuOpen ? (
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="18" x2="21" y2="18" /></svg>
+            )}
           </button>
 
           <nav className="relative z-[130] hidden items-center gap-2 tablet-large:flex">
@@ -383,7 +390,7 @@ const SiteLayout = () => {
         />
       ) : null}
 
-      <main className="mx-auto w-full max-w-7xl px-3 py-6 mobile-small:px-4 mobile-small:py-8 mobile:px-5 sm:px-6 sm:py-10 tablet-large:px-8 desktop:py-12">
+      <main id="main-content" className="mx-auto w-full max-w-7xl px-3 py-6 mobile-small:px-4 mobile-small:py-8 mobile:px-5 sm:px-6 sm:py-10 tablet-large:px-8 desktop:py-12">
         <Outlet />
       </main>
 

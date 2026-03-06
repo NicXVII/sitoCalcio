@@ -57,9 +57,9 @@ const SponsorsPage = () => {
                   href={sponsor.website}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-4 inline-flex rounded-full border border-field-300 bg-field-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-field-800 transition hover:border-field-500 hover:bg-field-100"
+                  className="mt-4 inline-flex items-center gap-1.5 rounded-full border border-field-300 bg-field-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-field-800 transition hover:border-field-500 hover:bg-field-100"
                 >
-                  Visita Sponsor
+                  Visita Sponsor <span aria-hidden="true">↗</span>
                 </a>
               ) : null}
             </article>
@@ -102,9 +102,9 @@ const SponsorsPage = () => {
                   href={sponsor.website}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-3 inline-flex text-xs font-semibold uppercase tracking-[0.12em] text-field-700 underline underline-offset-4"
+                  className="mt-3 inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-[0.12em] text-field-700 underline underline-offset-4"
                 >
-                  Apri Sito
+                  Apri Sito <span aria-hidden="true">↗</span>
                 </a>
               ) : null}
             </article>
@@ -123,9 +123,9 @@ const SponsorsPage = () => {
                 href={sponsor.website}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-3 inline-flex text-xs font-semibold uppercase tracking-[0.12em] text-field-700 underline underline-offset-4"
+                className="mt-3 inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-[0.12em] text-field-700 underline underline-offset-4"
               >
-                Dettagli Sponsor
+                Dettagli Sponsor <span aria-hidden="true">↗</span>
               </a>
             ) : null}
           </article>

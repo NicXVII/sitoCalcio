@@ -49,3 +49,8 @@ export type ContactInfo = {
   phone: string;
   mapLabel: string;
 };
+
+export type Document = {
+  label: string;
+  href: string;
+};
