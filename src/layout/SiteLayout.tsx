@@ -1,7 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
+import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import ClubLogo from '../components/ClubLogo';
 import { contacts, extraNavItems, mainNavItems } from '../data/navigationData';
+
+const GeometricBackground = lazy(() => import('../components/GeometricBackground'));
 
 const navClass = ({ isActive }: { isActive: boolean }) =>
   `rounded-full px-4 py-2 text-sm font-semibold uppercase tracking-[0.12em] transition ${
@@ -242,6 +244,7 @@ const SiteLayout = () => {
 
   return (
     <div className="interactive-metal-bg flex min-h-screen flex-col bg-gradient-to-b from-field-50 via-white to-field-100/60 text-field-900">
+      <Suspense fallback={null}><GeometricBackground /></Suspense>
       <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-full focus:bg-field-600 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white focus:outline-none">
         Vai al contenuto principale
       </a>
