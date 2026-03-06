@@ -6,7 +6,7 @@ import { contacts, extraNavItems, mainNavItems } from '../data/navigationData';
 const GeometricBackground = lazy(() => import('../components/GeometricBackground'));
 
 const navClass = ({ isActive }: { isActive: boolean }) =>
-  `rounded-full px-4 py-2 text-sm font-semibold uppercase tracking-[0.12em] transition ${
+  `rounded-full px-3 py-2 text-xs font-semibold uppercase tracking-[0.1em] transition desktop:px-4 desktop:text-sm desktop:tracking-[0.12em] ${
     isActive ? 'bg-field-600 text-white' : 'text-field-800 hover:bg-field-100'
   }`;
 
@@ -288,7 +288,7 @@ const SiteLayout = () => {
             )}
           </button>
 
-          <nav className="relative z-[130] hidden items-center gap-2 tablet-large:flex">
+          <nav className="relative z-[130] hidden items-center gap-1 tablet-large:flex desktop:gap-2">
             {mainNavItems.map((item) => (
               <NavLink key={item.path} to={item.path} className={navClass}>
                 {item.label}

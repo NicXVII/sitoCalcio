@@ -27,7 +27,7 @@ const HomePage = () => {
             </p>
             <div className="grid gap-3 mobile:flex mobile:flex-wrap">
               <Link
-                to="/prime-squadre"
+                to="/squadre"
                 className="rounded-full bg-field-600 px-6 py-3 text-center text-sm font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-field-700"
               >
                 Scopri le Squadre

@@ -6,11 +6,9 @@ const HomePage = lazy(() => import('./pages/HomePage'));
 const SocietyPage = lazy(() => import('./pages/SocietyPage'));
 const HistoryPage = lazy(() => import('./pages/HistoryPage'));
 const ResultsPage = lazy(() => import('./pages/ResultsPage'));
-const FirstTeamsPage = lazy(() => import('./pages/FirstTeamsPage'));
-const YouthSectorPage = lazy(() => import('./pages/YouthSectorPage'));
+const TeamsPage = lazy(() => import('./pages/TeamsPage'));
 const SchoolPage = lazy(() => import('./pages/SchoolPage'));
 const NewsPage = lazy(() => import('./pages/NewsPage'));
-const MediaPage = lazy(() => import('./pages/MediaPage'));
 const SponsorsPage = lazy(() => import('./pages/SponsorsPage'));
 const ContactsPage = lazy(() => import('./pages/ContactsPage'));
 const SafeguardingPage = lazy(() => import('./pages/SafeguardingPage'));
@@ -32,11 +30,12 @@ const App = () => {
             <Route path="/societa" element={<SocietyPage />} />
             <Route path="/storia" element={<HistoryPage />} />
             <Route path="/risultati" element={<ResultsPage />} />
-            <Route path="/prime-squadre" element={<FirstTeamsPage />} />
-            <Route path="/settore-giovanile" element={<YouthSectorPage />} />
+            <Route path="/squadre" element={<TeamsPage />} />
+            <Route path="/prime-squadre" element={<Navigate replace to="/squadre" />} />
+            <Route path="/settore-giovanile" element={<Navigate replace to="/squadre" />} />
+            <Route path="/media" element={<Navigate replace to="/" />} />
             <Route path="/scuola-calcio" element={<SchoolPage />} />
             <Route path="/news" element={<NewsPage />} />
-            <Route path="/media" element={<MediaPage />} />
             <Route path="/sponsor" element={<SponsorsPage />} />
             <Route path="/contatti" element={<ContactsPage />} />
             <Route path="/tutela-minori" element={<SafeguardingPage />} />
