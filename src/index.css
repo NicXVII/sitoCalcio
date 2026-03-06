@@ -94,6 +94,10 @@ a {
   z-index: 1;
 }
 
+.interactive-metal-bg > header {
+  z-index: 120;
+}
+
 .surface-card {
   background-color: rgba(255, 255, 255, 0.84);
   border-color: rgba(182, 193, 162, 0.58);

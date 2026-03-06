@@ -9,7 +9,7 @@ const navClass = ({ isActive }: { isActive: boolean }) =>
   }`;
 
 const dropdownClass = ({ isActive }: { isActive: boolean }) =>
-  `block rounded-xl px-3 py-2 text-sm font-semibold uppercase tracking-[0.12em] whitespace-normal break-words transition ${
+  `block rounded-xl px-4 py-3 text-sm font-semibold uppercase tracking-[0.12em] whitespace-normal break-words transition ${
     isActive ? 'bg-field-600 text-white' : 'text-field-800 hover:bg-field-100'
   }`;
 
