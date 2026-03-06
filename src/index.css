@@ -17,12 +17,14 @@ body {
   min-height: 100vh;
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial,
     sans-serif;
+  background-color: #f0fdfa;
   background-image:
-    radial-gradient(circle at 12% 10%, rgba(163, 177, 138, 0.28), transparent 46%),
-    radial-gradient(circle at 90% 5%, rgba(218, 215, 205, 0.3), transparent 42%),
-    linear-gradient(135deg, rgba(248, 247, 245, 0.68), rgba(218, 224, 208, 0.46) 45%, rgba(237, 239, 232, 0.66));
-  background-position: 12% 10%, 90% 5%, 50% 50%;
-  background-size: 150% 150%, 165% 165%, 200% 200%;
+    linear-gradient(45deg, rgba(240,253,250,1) 0%, rgba(204,251,241,0.7) 30%, rgba(153,246,228,0.5) 60%, rgba(94,234,212,0.4) 100%),
+    radial-gradient(circle at 40% 30%, rgba(255,255,255,0.8) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(167,243,208,0.5) 0%, transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(209,250,229,0.6) 0%, transparent 45%);
+  background-position: 0 0, 40% 30%, 80% 70%, 20% 80%;
+  background-size: 100% 100%, 160% 160%, 170% 170%, 150% 150%;
   animation: ambientField 34s ease-in-out infinite alternate;
 }
 
@@ -37,15 +39,15 @@ a {
 
 @keyframes ambientField {
   0% {
-    background-position: 10% 12%, 88% 6%, 50% 50%;
+    background-position: 0 0, 38% 28%, 78% 68%, 18% 78%;
   }
 
   50% {
-    background-position: 16% 8%, 84% 12%, 45% 56%;
+    background-position: 0 0, 44% 34%, 82% 64%, 22% 82%;
   }
 
   100% {
-    background-position: 13% 15%, 92% 7%, 53% 45%;
+    background-position: 0 0, 36% 32%, 76% 74%, 24% 76%;
   }
 }
 
@@ -66,16 +68,16 @@ a {
 
 .interactive-metal-bg::before {
   background:
-    radial-gradient(circle 280px at var(--mouse-x) var(--mouse-y), rgba(248, 247, 245, 0.3) 0%, rgba(198, 208, 185, 0.28) 26%, rgba(88, 129, 87, 0.18) 46%, rgba(58, 90, 64, 0.1) 62%, transparent 74%),
-    radial-gradient(circle 165px at var(--trail-x) var(--trail-y), rgba(233, 231, 225, 0.26) 0%, rgba(122, 170, 131, 0.22) 40%, rgba(52, 78, 65, 0.1) 62%, transparent 74%),
+    radial-gradient(circle 280px at var(--mouse-x) var(--mouse-y), rgba(240,253,250,0.35) 0%, rgba(153,246,228,0.28) 26%, rgba(94,234,212,0.18) 46%, rgba(45,212,191,0.1) 62%, transparent 74%),
+    radial-gradient(circle 165px at var(--trail-x) var(--trail-y), rgba(204,251,241,0.28) 0%, rgba(94,234,212,0.22) 40%, rgba(20,184,166,0.1) 62%, transparent 74%),
     conic-gradient(
       from 0deg at var(--mouse-x) var(--mouse-y),
-      rgba(248, 247, 245, 0.18),
-      rgba(150, 183, 149, 0.1),
-      rgba(88, 129, 87, 0.09),
-      rgba(122, 170, 131, 0.16),
-      rgba(52, 78, 65, 0.08),
-      rgba(248, 247, 245, 0.18)
+      rgba(240,253,250,0.18),
+      rgba(153,246,228,0.12),
+      rgba(94,234,212,0.09),
+      rgba(45,212,191,0.14),
+      rgba(20,184,166,0.08),
+      rgba(240,253,250,0.18)
     );
   filter: saturate(126%) contrast(108%);
   opacity: calc(var(--mouse-active) * 0.82);
@@ -83,8 +85,8 @@ a {
 
 .interactive-metal-bg::after {
   background:
-    radial-gradient(circle 410px at var(--mouse-x) var(--mouse-y), rgba(88, 129, 87, 0.26) 0%, rgba(58, 90, 64, 0.14) 38%, transparent 72%),
-    radial-gradient(circle 230px at var(--trail-x) var(--trail-y), rgba(117, 163, 140, 0.22) 0%, rgba(41, 61, 51, 0.1) 55%, transparent 78%);
+    radial-gradient(circle 410px at var(--mouse-x) var(--mouse-y), rgba(94,234,212,0.22) 0%, rgba(45,212,191,0.12) 38%, transparent 72%),
+    radial-gradient(circle 230px at var(--trail-x) var(--trail-y), rgba(153,246,228,0.2) 0%, rgba(20,184,166,0.08) 55%, transparent 78%);
   filter: blur(30px);
   opacity: calc((var(--mouse-active) * 0.58) + (var(--trail-active) * 0.22));
 }
@@ -125,8 +127,8 @@ a {
 
 .effects-lite .interactive-metal-bg::before {
   background:
-    radial-gradient(circle 220px at var(--mouse-x) var(--mouse-y), rgba(237, 239, 232, 0.28) 0%, rgba(122, 170, 131, 0.16) 40%, transparent 70%),
-    radial-gradient(circle 130px at var(--trail-x) var(--trail-y), rgba(163, 177, 138, 0.16) 0%, transparent 72%);
+    radial-gradient(circle 220px at var(--mouse-x) var(--mouse-y), rgba(204,251,241,0.28) 0%, rgba(94,234,212,0.16) 40%, transparent 70%),
+    radial-gradient(circle 130px at var(--trail-x) var(--trail-y), rgba(153,246,228,0.16) 0%, transparent 72%);
   filter: saturate(108%) contrast(102%);
 }
 

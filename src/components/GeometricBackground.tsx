@@ -13,11 +13,11 @@ type Node = {
 };
 
 const COLORS = {
-  nodeBase: [88, 129, 87],
-  nodeLight: [163, 177, 138],
-  lineBase: [58, 90, 64],
-  accent: [122, 170, 131],
-  glow: [198, 208, 185],
+  nodeBase: [20, 184, 166],
+  nodeLight: [94, 234, 212],
+  lineBase: [45, 212, 191],
+  accent: [153, 246, 228],
+  glow: [204, 251, 241],
 };
 
 const GeometricBackground = () => {

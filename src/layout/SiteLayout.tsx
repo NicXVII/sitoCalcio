@@ -243,8 +243,9 @@ const SiteLayout = () => {
   }, []);
 
   return (
-    <div className="interactive-metal-bg flex min-h-screen flex-col bg-gradient-to-b from-field-50 via-white to-field-100/60 text-field-900">
-      <Suspense fallback={null}><GeometricBackground /></Suspense>
+    <>
+    <Suspense fallback={null}><GeometricBackground /></Suspense>
+    <div className="interactive-metal-bg flex min-h-screen flex-col text-field-900">
       <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-full focus:bg-field-600 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white focus:outline-none">
         Vai al contenuto principale
       </a>
@@ -408,6 +409,7 @@ const SiteLayout = () => {
         </div>
       </footer>
     </div>
+    </>
   );
 };
 
