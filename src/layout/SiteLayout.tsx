@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect, useState } from 'react';
-import { NavLink, Outlet, useLocation } from 'react-router-dom';
+import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 import ClubLogo from '../components/ClubLogo';
 import { contacts, mainNavItems } from '../data/navigationData';
 
@@ -266,13 +266,34 @@ const SiteLayout = () => {
       </main>
 
       <footer className="mt-auto border-t border-field-200 bg-field-900 text-white">
-        <div className="mx-auto flex w-full max-w-7xl flex-col gap-2 px-3 py-7 text-sm mobile-small:px-4 mobile:px-5 sm:px-6 tablet-large:px-8 ultrawide:max-w-[1536px]">
-          <p className="font-display text-xl uppercase tracking-wide mobile:text-2xl">A.S.D. Domio Calcio</p>
-          <p>{contacts.address}</p>
-          <p>
-            {contacts.email} | {contacts.phone}
-          </p>
-          <p className="text-white/70">Nuova piattaforma digitale 2026: sport, educazione, comunita.</p>
+        <div className="mx-auto w-full max-w-7xl px-3 py-10 mobile-small:px-4 mobile:px-5 sm:px-6 tablet-large:px-8 ultrawide:max-w-[1536px]">
+          <div className="grid gap-8 tablet-small:grid-cols-3">
+            <div>
+              <p className="font-display text-xl uppercase tracking-wide mobile:text-2xl">A.S.D. Domio Calcio</p>
+              <p className="mt-3 text-sm text-white/60">Sport, educazione, comunita dal 1972. Un presidio sportivo per San Dorligo della Valle e tutto il territorio.</p>
+            </div>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/40">Link Rapidi</p>
+              <nav className="mt-3 grid gap-1.5">
+                <Link to="/squadre" className="text-sm text-white/70 transition hover:text-white">Squadre</Link>
+                <Link to="/risultati" className="text-sm text-white/70 transition hover:text-white">Risultati</Link>
+                <Link to="/news" className="text-sm text-white/70 transition hover:text-white">News</Link>
+                <Link to="/sponsor" className="text-sm text-white/70 transition hover:text-white">Sponsor</Link>
+                <Link to="/contatti" className="text-sm text-white/70 transition hover:text-white">Contatti</Link>
+              </nav>
+            </div>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/40">Contatti</p>
+              <div className="mt-3 space-y-1.5 text-sm text-white/70">
+                <p>{contacts.address}</p>
+                <p>{contacts.email}</p>
+                <p>{contacts.phone}</p>
+              </div>
+            </div>
+          </div>
+          <div className="mt-8 border-t border-white/10 pt-5 text-xs text-white/30">
+            © 2026 A.S.D. Domio Calcio — Tutti i diritti riservati
+          </div>
         </div>
       </footer>
     </div>

@@ -60,13 +60,13 @@ const SocietyPage = () => {
       </section>
 
       {/* --- STORIA APPROFONDITA --- */}
-      <div className="space-y-2">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-field-600">Approfondimento</p>
-        <h2 className="font-display text-4xl uppercase tracking-wide text-field-900 mobile-small:text-5xl">La Nostra Storia</h2>
-        <p className="max-w-2xl text-sm text-field-800">
+      <section className="-mx-3 rounded-3xl bg-gradient-to-br from-field-800 via-field-900 to-field-900 px-5 py-10 text-center mobile-small:-mx-4 mobile-small:px-6 mobile:px-7 sm:-mx-6 sm:px-10 tablet-large:-mx-8 tablet-large:px-12">
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-field-300">Approfondimento</p>
+        <h2 className="mt-2 font-display text-4xl uppercase tracking-wide text-white mobile-small:text-5xl">La Nostra Storia</h2>
+        <p className="mx-auto mt-3 max-w-2xl text-sm text-field-200/80">
           Memoria, territorio, tenacia: dal 1972 il Domio Calcio e una storia di persone, sacrifici e continuita sportiva.
         </p>
-      </div>
+      </section>
 
       {/* Atto Costitutivo - numeri chiave */}
       <section className="surface-card space-y-5 rounded-3xl border border-field-100 p-5 mobile-small:p-6 tablet-small:p-8">

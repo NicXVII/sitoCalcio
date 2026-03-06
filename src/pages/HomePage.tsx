@@ -9,62 +9,68 @@ const HomePage = () => {
 
   return (
     <div className="space-y-10 mobile:space-y-12 sm:space-y-14">
-      <section className="surface-card relative overflow-hidden rounded-3xl border border-field-100 p-4 mobile-small:p-6 mobile:p-7 sm:p-10 tablet-large:p-12">
-        <div className="absolute -left-24 -top-20 h-64 w-64 rounded-full bg-field-200/50 blur-3xl" aria-hidden="true" />
-        <div className="absolute -bottom-28 right-0 h-72 w-72 rounded-full bg-field-400/30 blur-3xl" aria-hidden="true" />
+      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-field-800 via-field-900 to-field-900 p-4 mobile-small:p-6 mobile:p-7 sm:p-10 tablet-large:p-12">
+        <div className="absolute -left-24 -top-20 h-64 w-64 rounded-full bg-field-500/15 blur-3xl" aria-hidden="true" />
+        <div className="absolute -bottom-28 right-0 h-72 w-72 rounded-full bg-field-400/10 blur-3xl" aria-hidden="true" />
+        <div className="pointer-events-none absolute left-1/4 top-1/4 h-80 w-80 rounded-full border-[2px] border-white/[0.04]" aria-hidden="true" />
+        <div className="pointer-events-none absolute -right-16 bottom-8 h-64 w-64 rounded-full border-[2px] border-white/[0.04]" aria-hidden="true" />
 
         <div className="relative grid gap-6 mobile:gap-7 tablet-large:grid-cols-[1.2fr_0.8fr] tablet-large:items-end">
           <div className="space-y-5 mobile:space-y-6">
-            <p className="inline-flex rounded-full border border-field-200 bg-field-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-field-700">
+            <p className="inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-field-200">
               Stagione 2025/2026
             </p>
-            <h1 className="font-display text-4xl uppercase leading-[0.95] tracking-wide text-field-900 mobile:text-5xl sm:text-6xl tablet-large:text-7xl">
+            <h1 className="font-display text-4xl uppercase leading-[0.95] tracking-wide text-white mobile:text-5xl sm:text-6xl tablet-large:text-7xl">
               Il Nuovo Domio Calcio
             </h1>
-            <p className="max-w-2xl text-base text-field-800 mobile-small:text-lg">
+            <p className="max-w-2xl text-base text-field-200/90 mobile-small:text-lg">
               Un sito moderno, veloce e orientato alle famiglie: piu chiarezza, piu risultati aggiornati, piu
               spazio alla crescita dei nostri atleti.
             </p>
             <div className="grid gap-3 mobile:flex mobile:flex-wrap">
               <Link
                 to="/squadre"
-                className="rounded-full bg-field-600 px-6 py-3 text-center text-sm font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-field-700"
+                className="rounded-full bg-white px-6 py-3 text-center text-sm font-semibold uppercase tracking-[0.12em] text-field-900 transition hover:bg-field-50"
               >
                 Scopri le Squadre
               </Link>
               <Link
                 to="/contatti"
-                className="rounded-full border border-field-300 bg-white px-6 py-3 text-center text-sm font-semibold uppercase tracking-[0.12em] text-field-900 transition hover:border-field-500"
+                className="rounded-full border border-white/25 bg-white/10 px-6 py-3 text-center text-sm font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-white/20"
               >
                 Iscrizioni 2025/2026
               </Link>
             </div>
           </div>
 
-          <div className="grid gap-4 rounded-2xl border border-field-100 bg-field-50/70 p-4 mobile-small:p-5">
-            <div className="surface-panel flex items-center gap-3 rounded-xl border p-3 mobile-small:p-4">
+          <div className="grid gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 mobile-small:p-5">
+            <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-3 mobile-small:p-4">
               <ClubLogo
                 alt="Logo Domio Calcio"
                 loading="eager"
                 fetchPriority="low"
-                className="h-14 w-14 rounded-xl border border-field-200 bg-white p-1 object-contain"
+                className="h-14 w-14 rounded-xl border border-white/20 bg-white p-1 object-contain"
               />
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-field-700">Identita Domio</p>
-                <p className="font-display text-2xl uppercase tracking-wide text-field-900">Una Societa, Un Territorio</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-field-300">Identita Domio</p>
+                <p className="font-display text-2xl uppercase tracking-wide text-white">Una Societa, Un Territorio</p>
               </div>
             </div>
-            <div className="surface-panel rounded-xl border p-3 mobile-small:p-4">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-field-700">Prossima Gara</p>
-              <p className="mt-2 font-display text-2xl uppercase text-field-900 mobile-small:text-3xl">Domio vs Muggia 1967</p>
-              <p className="text-sm text-field-700">Domenica 15 marzo 2026, ore 15:30</p>
+            <div className="rounded-xl border border-white/10 bg-white/5 p-3 mobile-small:p-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-field-300">Prossima Gara</p>
+              <div className="mt-3 flex items-center justify-center gap-3">
+                <span className="font-display text-xl uppercase text-white mobile-small:text-2xl">Domio</span>
+                <span className="rounded-lg bg-white/10 px-3 py-1 font-display text-sm text-field-300">VS</span>
+                <span className="font-display text-xl uppercase text-white mobile-small:text-2xl">Muggia 1967</span>
+              </div>
+              <p className="mt-2 text-center text-sm text-field-300">Domenica 15 marzo 2026, ore 15:30</p>
             </div>
-            <div className="surface-panel rounded-xl border p-3 mobile-small:p-4">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-field-700">Novita</p>
-              <p className="mt-2 text-sm text-field-800">
+            <div className="rounded-xl border border-white/10 bg-white/5 p-3 mobile-small:p-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-field-300">Novita</p>
+              <p className="mt-2 text-sm text-field-200/80">
                 Attiva la nuova sezione dedicata a tutela minori e safeguarding con referenti ufficiali societari.
               </p>
-              <Link to="/societa" className="mt-3 inline-block text-sm font-semibold text-field-700 underline">
+              <Link to="/societa" className="mt-3 inline-block text-sm font-semibold text-white underline decoration-white/40 underline-offset-4 hover:decoration-white/70">
                 Vai alla sezione societa
               </Link>
             </div>
@@ -109,8 +115,9 @@ const HomePage = () => {
         />
 
         <div className="grid gap-4 tablet-small:grid-cols-2 desktop:grid-cols-3">
-          {values.map((value) => (
-            <article key={value.title} className="surface-card rounded-2xl border border-field-100 p-4 mobile-small:p-6">
+          {values.map((value, index) => (
+            <article key={value.title} className="surface-card relative overflow-hidden rounded-2xl border border-field-100 p-4 pl-5 mobile-small:p-6 mobile-small:pl-7">
+              <div className={`absolute left-0 top-0 h-full w-1 ${index === 0 ? 'bg-field-500' : index === 1 ? 'bg-field-600' : 'bg-field-700'}`} aria-hidden="true" />
               <h3 className="font-display text-2xl uppercase tracking-wide text-field-900 mobile-small:text-3xl">{value.title}</h3>
               <p className="mt-3 text-field-800">{value.text}</p>
             </article>
@@ -128,9 +135,12 @@ const HomePage = () => {
         <div className="grid gap-4 tablet-small:grid-cols-2 desktop:grid-cols-3">
           {newsHighlights.map((news) => (
             <article key={news.title} className="surface-card rounded-2xl border border-field-100 p-4 mobile-small:p-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-field-700">
-                {news.tag} | {news.date}
-              </p>
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="rounded-full bg-field-600 px-2.5 py-0.5 text-[0.6rem] font-semibold uppercase tracking-[0.14em] text-white">
+                  {news.tag}
+                </span>
+                <span className="text-xs text-field-500">{news.date}</span>
+              </div>
               <h3 className="mt-3 font-display text-2xl uppercase tracking-wide text-field-900 mobile-small:text-3xl">{news.title}</h3>
               <p className="mt-3 text-sm text-field-800">{news.summary}</p>
             </article>
