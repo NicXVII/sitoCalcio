@@ -10,12 +10,6 @@ export const mainNavItems: NavItem[] = [
   { label: 'Contatti', path: '/contatti' }
 ];
 
-export const extraNavItems: NavItem[] = [
-  { label: 'La Nostra Storia', path: '/storia' },
-  { label: 'Scuola Calcio', path: '/scuola-calcio' },
-  { label: 'Tutela Minori', path: '/tutela-minori' }
-];
-
 export const contacts: ContactInfo = {
   address: 'Localita Mattonaia 610, San Dorligo della Valle (TS)',
   email: 'segreteria@domiocalcio.com',

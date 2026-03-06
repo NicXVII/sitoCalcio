@@ -1,7 +1,7 @@
-import { lazy, Suspense, useEffect, useRef, useState } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import ClubLogo from '../components/ClubLogo';
-import { contacts, extraNavItems, mainNavItems } from '../data/navigationData';
+import { contacts, mainNavItems } from '../data/navigationData';
 
 const GeometricBackground = lazy(() => import('../components/GeometricBackground'));
 
@@ -10,68 +10,13 @@ const navClass = ({ isActive }: { isActive: boolean }) =>
     isActive ? 'bg-field-600 text-white' : 'text-field-800 hover:bg-field-100'
   }`;
 
-const dropdownClass = ({ isActive }: { isActive: boolean }) =>
-  `block rounded-xl px-4 py-3 text-sm font-semibold uppercase tracking-[0.12em] whitespace-normal break-words transition ${
-    isActive ? 'bg-field-600 text-white' : 'text-field-800 hover:bg-field-100'
-  }`;
-
 const SiteLayout = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isDesktopMoreOpen, setIsDesktopMoreOpen] = useState(false);
-  const [isMobileMoreOpen, setIsMobileMoreOpen] = useState(false);
-  const moreButtonRef = useRef<HTMLButtonElement | null>(null);
-  const moreMenuRef = useRef<HTMLDivElement | null>(null);
   const location = useLocation();
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
-    setIsDesktopMoreOpen(false);
-    setIsMobileMoreOpen(false);
   }, [location.pathname]);
-
-  useEffect(() => {
-    if (!isDesktopMoreOpen) {
-      return;
-    }
-
-    const closeMenu = () => setIsDesktopMoreOpen(false);
-
-    const handlePointerDown = (event: MouseEvent | TouchEvent) => {
-      const target = event.target as Node;
-
-      if (moreButtonRef.current?.contains(target) || moreMenuRef.current?.contains(target)) {
-        return;
-      }
-
-      closeMenu();
-    };
-
-    const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        closeMenu();
-      }
-    };
-
-    const handleViewportChange = () => {
-      if (window.innerWidth < 1024) {
-        closeMenu();
-      }
-    };
-
-    window.addEventListener('mousedown', handlePointerDown);
-    window.addEventListener('touchstart', handlePointerDown, { passive: true });
-    window.addEventListener('scroll', closeMenu, { passive: true });
-    window.addEventListener('resize', handleViewportChange);
-    document.addEventListener('keydown', handleEscape);
-
-    return () => {
-      window.removeEventListener('mousedown', handlePointerDown);
-      window.removeEventListener('touchstart', handlePointerDown);
-      window.removeEventListener('scroll', closeMenu);
-      window.removeEventListener('resize', handleViewportChange);
-      document.removeEventListener('keydown', handleEscape);
-    };
-  }, [isDesktopMoreOpen]);
 
   useEffect(() => {
     if (!isMobileMenuOpen) {
@@ -266,17 +211,7 @@ const SiteLayout = () => {
 
           <button
             type="button"
-            onClick={() => {
-              setIsMobileMenuOpen((prev) => {
-                const next = !prev;
-
-                if (!next) {
-                  setIsMobileMoreOpen(false);
-                }
-
-                return next;
-              });
-            }}
+            onClick={() => setIsMobileMenuOpen((prev) => !prev)}
             className="rounded-full border border-field-200 p-2.5 text-field-800 mobile:p-3 tablet-large:hidden"
             aria-expanded={isMobileMenuOpen}
             aria-label={isMobileMenuOpen ? 'Chiudi menu' : 'Apri menu'}
@@ -294,38 +229,6 @@ const SiteLayout = () => {
                 {item.label}
               </NavLink>
             ))}
-
-            <div className="relative z-[135]">
-              <button
-                type="button"
-                ref={moreButtonRef}
-                className="rounded-full border border-field-200 bg-white px-4 py-2 text-sm font-semibold uppercase tracking-[0.12em] text-field-800 transition hover:border-field-300"
-                onClick={() => setIsDesktopMoreOpen((prev) => !prev)}
-                aria-expanded={isDesktopMoreOpen}
-                aria-controls="menu-altro-desktop"
-                aria-label="Apri menu altro"
-              >
-                Altro
-              </button>
-              {isDesktopMoreOpen ? (
-                <div
-                  id="menu-altro-desktop"
-                  ref={moreMenuRef}
-                  className="absolute right-0 top-[calc(100%+0.5rem)] z-[140] min-w-[18rem] max-w-[22rem] overflow-x-hidden overflow-y-auto overscroll-contain rounded-2xl border border-field-200 bg-white p-2 shadow-[0_26px_42px_-22px_rgba(20,31,26,0.45)] max-h-[min(70vh,28rem)]"
-                >
-                  {extraNavItems.map((item) => (
-                    <NavLink
-                      key={item.path}
-                      to={item.path}
-                      className={dropdownClass}
-                      onClick={() => setIsDesktopMoreOpen(false)}
-                    >
-                      {item.label}
-                    </NavLink>
-                  ))}
-                </div>
-              ) : null}
-            </div>
           </nav>
         </div>
 
@@ -337,46 +240,11 @@ const SiteLayout = () => {
                   key={item.path}
                   to={item.path}
                   className={navClass}
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    setIsMobileMoreOpen(false);
-                  }}
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.label}
                 </NavLink>
               ))}
-
-              <div className="rounded-2xl border border-field-100 bg-white/80 p-3">
-                <button
-                  type="button"
-                  onClick={() => setIsMobileMoreOpen((prev) => !prev)}
-                  aria-expanded={isMobileMoreOpen}
-                  aria-controls="menu-altro-mobile"
-                  className="w-full text-left text-sm font-semibold uppercase tracking-[0.12em] text-field-800"
-                >
-                  Altro
-                </button>
-                {isMobileMoreOpen ? (
-                  <div
-                    id="menu-altro-mobile"
-                    className="mt-3 grid max-h-[40vh] gap-2 overflow-y-auto overscroll-contain pr-1"
-                  >
-                    {extraNavItems.map((item) => (
-                      <NavLink
-                        key={item.path}
-                        to={item.path}
-                        className={navClass}
-                        onClick={() => {
-                          setIsMobileMoreOpen(false);
-                          setIsMobileMenuOpen(false);
-                        }}
-                      >
-                        {item.label}
-                      </NavLink>
-                    ))}
-                  </div>
-                ) : null}
-              </div>
             </div>
           </nav>
         ) : null}
@@ -388,7 +256,6 @@ const SiteLayout = () => {
           aria-label="Chiudi menu"
           onClick={() => {
             setIsMobileMenuOpen(false);
-            setIsMobileMoreOpen(false);
           }}
           className="fixed inset-0 z-[115] bg-field-900/20 backdrop-blur-[1px] tablet-large:hidden"
         />

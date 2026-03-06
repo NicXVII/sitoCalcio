@@ -92,7 +92,7 @@ const HomePage = () => {
               giovanile.
             </p>
             <Link
-              to="/storia"
+              to="/societa"
               className="mt-4 inline-flex rounded-full bg-field-600 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-white hover:bg-field-700"
             >
               Leggi la storia completa
