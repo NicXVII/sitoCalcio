@@ -241,12 +241,12 @@ const SiteLayout = () => {
   }, []);
 
   return (
-    <div className="interactive-metal-bg min-h-screen bg-gradient-to-b from-field-50 via-white to-field-100/60 text-field-900">
+    <div className="interactive-metal-bg flex min-h-screen flex-col bg-gradient-to-b from-field-50 via-white to-field-100/60 text-field-900">
       <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-full focus:bg-field-600 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white focus:outline-none">
         Vai al contenuto principale
       </a>
       <header className="sticky top-0 z-[120] overflow-visible border-b border-field-100 bg-white/90 backdrop-blur">
-        <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-3 px-3 py-3 mobile-small:px-4 mobile-small:py-4 mobile:px-5 sm:px-6 tablet-large:px-8">
+        <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-3 px-3 py-3 mobile-small:px-4 mobile-small:py-4 mobile:px-5 sm:px-6 tablet-large:px-8 ultrawide:max-w-[1536px]">
           <div className="flex items-center gap-2 mobile-small:gap-3 sm:gap-4">
             <ClubLogo
               alt="Logo A.S.D. Domio Calcio"
@@ -390,12 +390,12 @@ const SiteLayout = () => {
         />
       ) : null}
 
-      <main id="main-content" className="mx-auto w-full max-w-7xl px-3 py-6 mobile-small:px-4 mobile-small:py-8 mobile:px-5 sm:px-6 sm:py-10 tablet-large:px-8 desktop:py-12">
+      <main id="main-content" className="mx-auto w-full max-w-7xl flex-1 px-3 py-6 mobile-small:px-4 mobile-small:py-8 mobile:px-5 sm:px-6 sm:py-10 tablet-large:px-8 desktop:py-12 ultrawide:max-w-[1536px]">
         <Outlet />
       </main>
 
-      <footer className="border-t border-field-200 bg-field-900 text-white">
-        <div className="mx-auto flex w-full max-w-7xl flex-col gap-2 px-3 py-7 text-sm mobile-small:px-4 mobile:px-5 sm:px-6 tablet-large:px-8">
+      <footer className="mt-auto border-t border-field-200 bg-field-900 text-white">
+        <div className="mx-auto flex w-full max-w-7xl flex-col gap-2 px-3 py-7 text-sm mobile-small:px-4 mobile:px-5 sm:px-6 tablet-large:px-8 ultrawide:max-w-[1536px]">
           <p className="font-display text-xl uppercase tracking-wide mobile:text-2xl">A.S.D. Domio Calcio</p>
           <p>{contacts.address}</p>
           <p>

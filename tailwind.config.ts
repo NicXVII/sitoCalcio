@@ -86,7 +86,8 @@ export default {
         mobile: '430px',
         'tablet-small': '768px',
         'tablet-large': '1024px',
-        desktop: '1280px'
+        desktop: '1280px',
+        ultrawide: '1920px'
       },
       fontFamily: {
         display: [
