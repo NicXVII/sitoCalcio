@@ -17,15 +17,12 @@ body {
   min-height: 100vh;
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial,
     sans-serif;
-  background-color: #f0fdfa;
+  background-color: #f8faf6;
   background-image:
-    linear-gradient(45deg, rgba(240,253,250,1) 0%, rgba(204,251,241,0.7) 30%, rgba(153,246,228,0.5) 60%, rgba(94,234,212,0.4) 100%),
-    radial-gradient(circle at 40% 30%, rgba(255,255,255,0.8) 0%, transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(167,243,208,0.5) 0%, transparent 50%),
-    radial-gradient(circle at 20% 80%, rgba(209,250,229,0.6) 0%, transparent 45%);
-  background-position: 0 0, 40% 30%, 80% 70%, 20% 80%;
-  background-size: 100% 100%, 160% 160%, 170% 170%, 150% 150%;
-  animation: ambientField 34s ease-in-out infinite alternate;
+    linear-gradient(175deg, #ffffff 0%, #f8faf6 40%, #f0f4ec 100%),
+    radial-gradient(ellipse at 20% 0%, rgba(218,224,208,0.35) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 100%, rgba(200,208,185,0.2) 0%, transparent 45%);
+  background-attachment: fixed;
 }
 
 * {
@@ -38,17 +35,8 @@ a {
 }
 
 @keyframes ambientField {
-  0% {
-    background-position: 0 0, 38% 28%, 78% 68%, 18% 78%;
-  }
-
-  50% {
-    background-position: 0 0, 44% 34%, 82% 64%, 22% 82%;
-  }
-
-  100% {
-    background-position: 0 0, 36% 32%, 76% 74%, 24% 76%;
-  }
+  0% { opacity: 1; }
+  100% { opacity: 1; }
 }
 
 .interactive-metal-bg {
@@ -68,25 +56,25 @@ a {
 
 .interactive-metal-bg::before {
   background:
-    radial-gradient(circle 280px at var(--mouse-x) var(--mouse-y), rgba(240,253,250,0.35) 0%, rgba(153,246,228,0.28) 26%, rgba(94,234,212,0.18) 46%, rgba(45,212,191,0.1) 62%, transparent 74%),
-    radial-gradient(circle 165px at var(--trail-x) var(--trail-y), rgba(204,251,241,0.28) 0%, rgba(94,234,212,0.22) 40%, rgba(20,184,166,0.1) 62%, transparent 74%),
+    radial-gradient(circle 280px at var(--mouse-x) var(--mouse-y), rgba(218,224,208,0.3) 0%, rgba(182,193,162,0.2) 26%, rgba(163,177,138,0.12) 46%, rgba(88,129,87,0.06) 62%, transparent 74%),
+    radial-gradient(circle 165px at var(--trail-x) var(--trail-y), rgba(200,208,185,0.22) 0%, rgba(163,177,138,0.14) 40%, rgba(88,129,87,0.06) 62%, transparent 74%),
     conic-gradient(
       from 0deg at var(--mouse-x) var(--mouse-y),
-      rgba(240,253,250,0.18),
-      rgba(153,246,228,0.12),
-      rgba(94,234,212,0.09),
-      rgba(45,212,191,0.14),
-      rgba(20,184,166,0.08),
-      rgba(240,253,250,0.18)
+      rgba(218,224,208,0.14),
+      rgba(182,193,162,0.1),
+      rgba(163,177,138,0.07),
+      rgba(88,129,87,0.08),
+      rgba(58,90,64,0.05),
+      rgba(218,224,208,0.14)
     );
-  filter: saturate(126%) contrast(108%);
+  filter: saturate(110%) contrast(104%);
   opacity: calc(var(--mouse-active) * 0.82);
 }
 
 .interactive-metal-bg::after {
   background:
-    radial-gradient(circle 410px at var(--mouse-x) var(--mouse-y), rgba(94,234,212,0.22) 0%, rgba(45,212,191,0.12) 38%, transparent 72%),
-    radial-gradient(circle 230px at var(--trail-x) var(--trail-y), rgba(153,246,228,0.2) 0%, rgba(20,184,166,0.08) 55%, transparent 78%);
+    radial-gradient(circle 410px at var(--mouse-x) var(--mouse-y), rgba(163,177,138,0.16) 0%, rgba(88,129,87,0.08) 38%, transparent 72%),
+    radial-gradient(circle 230px at var(--trail-x) var(--trail-y), rgba(182,193,162,0.14) 0%, rgba(58,90,64,0.05) 55%, transparent 78%);
   filter: blur(30px);
   opacity: calc((var(--mouse-active) * 0.58) + (var(--trail-active) * 0.22));
 }
@@ -101,16 +89,16 @@ a {
 }
 
 .surface-card {
-  background-color: rgba(255, 255, 255, 0.84);
-  border-color: rgba(182, 193, 162, 0.58);
+  background-color: rgba(255, 255, 255, 0.92);
+  border-color: rgba(182, 193, 162, 0.42);
   box-shadow:
-    0 20px 45px -20px rgba(23, 36, 25, 0.28),
-    0 10px 26px -18px rgba(58, 90, 64, 0.22);
+    0 1px 3px rgba(23, 36, 25, 0.06),
+    0 8px 24px -8px rgba(23, 36, 25, 0.12);
 }
 
 .surface-panel {
-  background-color: rgba(255, 255, 255, 0.76);
-  border-color: rgba(182, 193, 162, 0.52);
+  background-color: rgba(255, 255, 255, 0.86);
+  border-color: rgba(182, 193, 162, 0.38);
 }
 
 @supports ((-webkit-backdrop-filter: blur(8px)) or (backdrop-filter: blur(8px))) {
@@ -127,9 +115,9 @@ a {
 
 .effects-lite .interactive-metal-bg::before {
   background:
-    radial-gradient(circle 220px at var(--mouse-x) var(--mouse-y), rgba(204,251,241,0.28) 0%, rgba(94,234,212,0.16) 40%, transparent 70%),
-    radial-gradient(circle 130px at var(--trail-x) var(--trail-y), rgba(153,246,228,0.16) 0%, transparent 72%);
-  filter: saturate(108%) contrast(102%);
+    radial-gradient(circle 220px at var(--mouse-x) var(--mouse-y), rgba(200,208,185,0.22) 0%, rgba(163,177,138,0.1) 40%, transparent 70%),
+    radial-gradient(circle 130px at var(--trail-x) var(--trail-y), rgba(182,193,162,0.12) 0%, transparent 72%);
+  filter: saturate(105%) contrast(102%);
 }
 
 .effects-lite .interactive-metal-bg::after {
@@ -138,7 +126,7 @@ a {
 
 :root.effects-off body {
   animation: none;
-  background-size: 120% 120%, 120% 120%, 140% 140%;
+  background-image: linear-gradient(175deg, #ffffff 0%, #f8faf6 40%, #f0f4ec 100%);
 }
 
 :root.effects-off .interactive-metal-bg::before,

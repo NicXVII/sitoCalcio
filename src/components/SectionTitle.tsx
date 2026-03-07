@@ -12,7 +12,7 @@ const SectionTitle = ({ eyebrow, title, description }: SectionTitleProps) => {
           {eyebrow}
         </p>
       ) : null}
-      <h2 className="font-display text-3xl uppercase tracking-wide text-field-900 mobile-small:text-4xl sm:text-5xl tablet-large:text-6xl">
+      <h2 className="font-display text-3xl tracking-wide text-field-900 mobile-small:text-4xl sm:text-5xl tablet-large:text-6xl">
         {title}
       </h2>
       {description ? <p className="max-w-3xl text-sm text-field-800/90 mobile-small:text-base sm:text-lg">{description}</p> : null}

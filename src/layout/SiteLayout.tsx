@@ -6,8 +6,8 @@ import { contacts, mainNavItems } from '../data/navigationData';
 const GeometricBackground = lazy(() => import('../components/GeometricBackground'));
 
 const navClass = ({ isActive }: { isActive: boolean }) =>
-  `rounded-full px-3 py-2 text-xs font-semibold uppercase tracking-[0.1em] transition desktop:px-4 desktop:text-sm desktop:tracking-[0.12em] ${
-    isActive ? 'bg-field-600 text-white' : 'text-field-800 hover:bg-field-100'
+  `relative rounded-full px-3 py-2 text-xs font-semibold uppercase tracking-[0.1em] transition desktop:px-4 desktop:text-sm desktop:tracking-[0.12em] ${
+    isActive ? 'bg-field-800 text-white shadow-sm' : 'text-field-700 hover:bg-field-50 hover:text-field-900'
   }`;
 
 const SiteLayout = () => {
@@ -194,7 +194,7 @@ const SiteLayout = () => {
       <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-full focus:bg-field-600 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white focus:outline-none">
         Vai al contenuto principale
       </a>
-      <header className="sticky top-0 z-[120] overflow-visible border-b border-field-100 bg-white/90 backdrop-blur">
+      <header className="sticky top-0 z-[120] overflow-visible border-b border-field-200 bg-white/95 backdrop-blur-sm">
         <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-3 px-3 py-3 mobile-small:px-4 mobile-small:py-4 mobile:px-5 sm:px-6 tablet-large:px-8 ultrawide:max-w-[1536px]">
           <div className="flex items-center gap-2 mobile-small:gap-3 sm:gap-4">
             <ClubLogo
@@ -204,8 +204,8 @@ const SiteLayout = () => {
               className="h-12 w-12 rounded-xl border border-field-200 bg-white p-1 object-contain shadow-sm mobile-small:h-14 mobile-small:w-14 sm:h-16 sm:w-16"
             />
             <div>
-              <p className="font-display text-2xl uppercase tracking-wide text-field-900 mobile-small:text-3xl">A.S.D. Domio Calcio</p>
-              <p className="text-xs uppercase tracking-[0.2em] text-field-700">San Dorligo della Valle</p>
+              <p className="font-display text-xl tracking-wide text-field-900 mobile-small:text-2xl sm:text-3xl">A.S.D. Domio Calcio</p>
+              <p className="text-[0.6rem] uppercase tracking-[0.2em] text-field-600 mobile-small:text-xs">San Dorligo della Valle</p>
             </div>
           </div>
 
@@ -265,33 +265,33 @@ const SiteLayout = () => {
         <Outlet />
       </main>
 
-      <footer className="mt-auto border-t border-field-200 bg-field-900 text-white">
+      <footer className="mt-auto border-t border-field-800 bg-field-900 text-white">
         <div className="mx-auto w-full max-w-7xl px-3 py-10 mobile-small:px-4 mobile:px-5 sm:px-6 tablet-large:px-8 ultrawide:max-w-[1536px]">
           <div className="grid gap-8 tablet-small:grid-cols-3">
             <div>
-              <p className="font-display text-xl uppercase tracking-wide mobile:text-2xl">A.S.D. Domio Calcio</p>
-              <p className="mt-3 text-sm text-white/60">Sport, educazione, comunita dal 1972. Un presidio sportivo per San Dorligo della Valle e tutto il territorio.</p>
+              <p className="font-display text-xl tracking-wide mobile:text-2xl">A.S.D. Domio Calcio</p>
+              <p className="mt-3 text-sm text-white/50">Sport, educazione, comunita dal 1972. Il cuore sportivo di San Dorligo della Valle.</p>
             </div>
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/40">Link Rapidi</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/35">Link rapidi</p>
               <nav className="mt-3 grid gap-1.5">
-                <Link to="/squadre" className="text-sm text-white/70 transition hover:text-white">Squadre</Link>
-                <Link to="/risultati" className="text-sm text-white/70 transition hover:text-white">Risultati</Link>
-                <Link to="/news" className="text-sm text-white/70 transition hover:text-white">News</Link>
-                <Link to="/sponsor" className="text-sm text-white/70 transition hover:text-white">Sponsor</Link>
-                <Link to="/contatti" className="text-sm text-white/70 transition hover:text-white">Contatti</Link>
+                <Link to="/squadre" className="text-sm text-white/60 transition hover:text-white">Squadre</Link>
+                <Link to="/risultati" className="text-sm text-white/60 transition hover:text-white">Risultati</Link>
+                <Link to="/news" className="text-sm text-white/60 transition hover:text-white">News</Link>
+                <Link to="/sponsor" className="text-sm text-white/60 transition hover:text-white">Sponsor</Link>
+                <Link to="/contatti" className="text-sm text-white/60 transition hover:text-white">Contatti</Link>
               </nav>
             </div>
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/40">Contatti</p>
-              <div className="mt-3 space-y-1.5 text-sm text-white/70">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/35">Contatti</p>
+              <div className="mt-3 space-y-1.5 text-sm text-white/60">
                 <p>{contacts.address}</p>
-                <p>{contacts.email}</p>
-                <p>{contacts.phone}</p>
+                <a href={`mailto:${contacts.email}`} className="block transition hover:text-white">{contacts.email}</a>
+                <a href={`tel:${contacts.phone.replace(/\s/g, '')}`} className="block transition hover:text-white">{contacts.phone}</a>
               </div>
             </div>
           </div>
-          <div className="mt-8 border-t border-white/10 pt-5 text-xs text-white/30">
+          <div className="mt-8 border-t border-white/10 pt-5 text-xs text-white/25">
             © 2026 A.S.D. Domio Calcio — Tutti i diritti riservati
           </div>
         </div>

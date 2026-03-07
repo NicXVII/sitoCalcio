@@ -1,31 +1,50 @@
+import { Link } from 'react-router-dom';
 import type { Team } from '../data/types';
 
 type TeamCardProps = {
   team: Team;
+  variant?: 'agonistico' | 'base';
 };
 
-const TeamCard = ({ team }: TeamCardProps) => {
+const TeamCard = ({ team, variant = 'agonistico' }: TeamCardProps) => {
+  const borderColor = variant === 'agonistico' ? 'border-field-300' : 'border-field-200';
+  const badgeBg = variant === 'agonistico' ? 'bg-field-800 text-white' : 'bg-field-100 text-field-700';
+
   return (
-    <article className="surface-card reveal-up flex h-full flex-col justify-between rounded-2xl border border-field-100 p-4 transition duration-300 hover:-translate-y-1 mobile-small:p-5 sm:p-6">
+    <article className={`flex h-full flex-col justify-between rounded-2xl border ${borderColor} bg-white p-4 transition duration-300 hover:-translate-y-1 hover:shadow-lg mobile-small:p-5 sm:p-6`}>
       <div className="space-y-4">
         <div className="flex flex-col gap-2 mobile:items-center mobile:justify-between mobile:gap-3 tablet-small:flex-row">
-          <h3 className="font-display text-2xl uppercase tracking-wide text-field-900 mobile:text-3xl">{team.name}</h3>
-          <span className="w-fit rounded-full bg-field-100 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-field-700 mobile-small:text-xs">
+          <h3 className="font-display text-xl tracking-wide text-field-900 mobile:text-2xl">{team.name}</h3>
+          <span className={`w-fit rounded-full px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.14em] ${badgeBg}`}>
             {team.category}
           </span>
         </div>
-        <p className="text-sm text-field-900/85 mobile-small:text-base">{team.description}</p>
-        <p className="text-sm font-semibold text-field-700">Allenamenti: {team.training}</p>
-        <p className="rounded-xl bg-field-50 p-3 text-sm text-field-800">Prossimo appuntamento: {team.nextMatch}</p>
+        <p className="text-sm text-field-700 mobile-small:text-base">{team.description}</p>
+        <div className="space-y-2 text-sm">
+          <p className="flex items-center gap-2 text-field-700">
+            <span className="font-semibold text-field-800">Allenamenti:</span> {team.training}
+          </p>
+          <p className="rounded-xl border border-field-100 bg-field-50/60 px-3 py-2 text-field-700">
+            <span className="font-semibold text-field-800">Prossimo:</span> {team.nextMatch}
+          </p>
+        </div>
       </div>
 
-      <ul className="mt-5 flex flex-wrap gap-2">
-        {team.modules.map((module) => (
-          <li key={module} className="rounded-full border border-field-200 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-field-800">
-            {module}
-          </li>
-        ))}
-      </ul>
+      <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
+        <ul className="flex flex-wrap gap-2">
+          {team.modules.map((module) => (
+            <li key={module} className="rounded-full border border-field-200 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-field-600">
+              {module}
+            </li>
+          ))}
+        </ul>
+        <Link
+          to="/risultati"
+          className="rounded-full bg-field-800 px-4 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-field-700"
+        >
+          Risultati →
+        </Link>
+      </div>
     </article>
   );
 };
