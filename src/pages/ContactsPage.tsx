@@ -36,7 +36,7 @@ const ContactsPage = () => {
         </div>
         <iframe
           title="Mappa Campo Barut - Centro Sportivo Domio"
-          src="https://www.openstreetmap.org/export/embed.html?bbox=13.856%2C45.587%2C13.876%2C45.600&layer=mapnik&marker=45.5933%2C13.8656"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=13.830%2C45.601%2C13.850%2C45.614&layer=mapnik&marker=45.607739%2C13.839692"
           className="h-64 w-full border-0 mobile-small:h-72 tablet-small:h-80"
           loading="lazy"
           referrerPolicy="no-referrer"
