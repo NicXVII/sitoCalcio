@@ -22,8 +22,18 @@ const SocietyPage = () => {
       {/* Organigramma + Timeline */}
       <section className="grid gap-5 tablet-small:grid-cols-2">
         <article className="rounded-2xl border border-field-200 bg-white p-5 mobile-small:p-6">
-          <h3 className="font-display text-2xl tracking-wide text-field-900">D  >
-
+          <h3 className="font-display text-2xl tracking-wide text-field-900">Dirigenza</h3>
+          <ul className="mt-5 space-y-2">
+            <li className="rounded-xl border border-field-100 bg-field-50/40 p-3 mobile-small:p-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-field-600">Presidente</p>
+              <p className="mt-1 text-sm text-field-700">Organo direttivo</p>
+            </li>
+            <li className="rounded-xl border border-field-100 bg-field-50/40 p-3 mobile-small:p-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-field-600">Segretario</p>
+              <p className="mt-1 text-sm text-field-700">Gestione amministrativa</p>
+            </li>
+          </ul>
+        </article>
         <article className="rounded-2xl border border-field-200 bg-white p-5 mobile-small:p-6">
           <h3 className="font-display text-2xl tracking-wide text-field-900">Timeline</h3>
           <ol className="mt-5 space-y-3">
@@ -50,10 +60,10 @@ const SocietyPage = () => {
       </section>
 
       {/* --- STORIA APPROFONDITA --- */}
-      <section className="-mx-3 rounded-3xl bg-field-900 px-5 py-10 text-center mobile-small:-mx-4 mobile-small:px-6 mobile:px-7 sm:-mx-6 sm:px-10 tablet-large:-mx-8 tablet-large:px-12">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-field-400">Approfondimento</p>
+      <section className="-mx-3 rounded-3xl bg-field-700 px-5 py-10 text-center mobile-small:-mx-4 mobile-small:px-6 mobile:px-7 sm:-mx-6 sm:px-10 tablet-large:-mx-8 tablet-large:px-12">
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-field-300">Approfondimento</p>
         <h2 className="mt-2 font-display text-4xl tracking-wide text-white mobile-small:text-5xl">La nostra storia</h2>
-        <p className="mx-auto mt-3 max-w-2xl text-sm text-field-200/80">
+        <p className="mx-auto mt-3 max-w-2xl text-sm text-field-100">
           Memoria, territorio, tenacia: dal 1972 il Domio Calcio e una storia di persone, sacrifici e continuita sportiva.
         </p>
       </section>

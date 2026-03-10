@@ -14,30 +14,30 @@ const ResultsPage = () => {
       />
 
       {/* Scoreboard hero */}
-      <section className="overflow-hidden rounded-3xl bg-field-900">
+      <section className="overflow-hidden rounded-3xl bg-field-700">
         <div className="grid gap-px tablet-small:grid-cols-2">
           {/* Last result */}
           <div className="p-5 mobile-small:p-6 tablet-small:p-8">
-            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-field-400">Ultimo risultato · 3a Categoria</p>
+            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-field-300">Ultimo risultato · 3a Categoria</p>
             <div className="mt-5 flex items-center justify-center gap-4 mobile-small:gap-6">
               <div className="text-center">
                 <p className="font-display text-2xl tracking-wide text-white mobile-small:text-3xl">Domio</p>
               </div>
               <div className="flex items-center gap-2 rounded-xl bg-white/10 px-4 py-2 mobile-small:px-5">
                 <span className="font-display text-3xl text-white mobile-small:text-4xl">2</span>
-                <span className="text-lg text-field-400">–</span>
+                <span className="text-lg text-field-300">–</span>
                 <span className="font-display text-3xl text-white mobile-small:text-4xl">1</span>
               </div>
               <div className="text-center">
                 <p className="font-display text-2xl tracking-wide text-white mobile-small:text-3xl">Muggia</p>
               </div>
             </div>
-            <p className="mt-3 text-center text-sm text-field-400">Dom. 8 marzo 2026 · Campo Barut</p>
+            <p className="mt-3 text-center text-sm text-field-300">Dom. 8 marzo 2026 · Campo Barut</p>
           </div>
 
           {/* Next match */}
           <div className="border-t border-white/10 p-5 mobile-small:p-6 tablet-small:border-l tablet-small:border-t-0 tablet-small:p-8">
-            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-field-400">Prossima gara · 3a Categoria</p>
+            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-field-300">Prossima gara · 3a Categoria</p>
             <div className="mt-5 flex items-center justify-center gap-4 mobile-small:gap-6">
               <div className="text-center">
                 <p className="font-display text-2xl tracking-wide text-white mobile-small:text-3xl">Domio</p>
@@ -47,7 +47,7 @@ const ResultsPage = () => {
                 <p className="font-display text-2xl tracking-wide text-white mobile-small:text-3xl">Muggia 1967</p>
               </div>
             </div>
-            <p className="mt-3 text-center text-sm text-field-400">Dom. 15 marzo · ore 15:30 · Campo Barut</p>
+            <p className="mt-3 text-center text-sm text-field-300">Dom. 15 marzo · ore 15:30 · Campo Barut</p>
           </div>
         </div>
       </section>

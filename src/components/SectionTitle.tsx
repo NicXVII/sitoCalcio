@@ -8,7 +8,7 @@ const SectionTitle = ({ eyebrow, title, description }: SectionTitleProps) => {
   return (
     <div className="space-y-3">
       {eyebrow ? (
-        <p className="inline-flex rounded-full border border-field-200 bg-field-50 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-field-700 mobile-small:text-xs">
+        <p className="inline-flex rounded-full border border-field-500 bg-white/90 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-field-700 mobile-small:text-xs">
           {eyebrow}
         </p>
       ) : null}

@@ -155,7 +155,7 @@ const HomePage = () => {
             title="In evidenza"
             description="Comunicazioni e aggiornamenti dal club."
           />
-          <Link to="/news" className="rounded-full border border-field-300 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-field-700 transition hover:bg-field-50">
+          <Link to="/news" className="rounded-full border border-field-500 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-field-700 transition hover:bg-white">
             Tutte le news →
           </Link>
         </div>
@@ -167,7 +167,7 @@ const HomePage = () => {
                 <span className="rounded-full bg-field-800 px-2.5 py-0.5 text-[0.6rem] font-semibold uppercase tracking-[0.14em] text-white">
                   {news.tag}
                 </span>
-                <span className="text-xs text-field-500">{news.date}</span>
+                <span className="text-xs text-field-600">{news.date}</span>
               </div>
               <h3 className="mt-3 font-display text-xl tracking-wide text-field-900 mobile-small:text-2xl">{news.title}</h3>
               <p className="mt-2 text-sm text-field-700">{news.summary}</p>

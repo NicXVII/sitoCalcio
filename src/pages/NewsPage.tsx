@@ -51,15 +51,15 @@ const NewsPage = () => {
       {featured ? (
         <>
           {/* Featured article */}
-          <article className="overflow-hidden rounded-3xl border border-field-200 bg-field-900 p-5 mobile-small:p-6 tablet-small:p-8">
+          <article className="overflow-hidden rounded-3xl border border-field-200 bg-field-700 p-5 mobile-small:p-6 tablet-small:p-8">
             <div className="flex flex-wrap items-center gap-2">
               <span className={`rounded-full px-2.5 py-0.5 text-[0.6rem] font-semibold uppercase tracking-[0.14em] ${tagColorMap[featured.tag] ?? 'bg-field-600 text-white'}`}>
                 {featured.tag}
               </span>
-              <span className="text-xs text-field-400">{featured.date}</span>
+              <span className="text-xs text-field-300">{featured.date}</span>
             </div>
             <h3 className="mt-4 font-display text-2xl tracking-wide text-white mobile-small:text-3xl tablet-small:text-4xl">{featured.title}</h3>
-            <p className="mt-3 max-w-3xl text-base text-field-200/85">{featured.summary}</p>
+            <p className="mt-3 max-w-3xl text-base text-field-100">{featured.summary}</p>
           </article>
 
           {/* Rest of news */}
@@ -71,7 +71,7 @@ const NewsPage = () => {
                     <span className={`rounded-full px-2.5 py-0.5 text-[0.6rem] font-semibold uppercase tracking-[0.14em] ${tagColorMap[news.tag] ?? 'bg-field-600 text-white'}`}>
                       {news.tag}
                     </span>
-                    <span className="text-xs text-field-500">{news.date}</span>
+                    <span className="text-xs text-field-600">{news.date}</span>
                   </div>
                   <h3 className="mt-3 font-display text-xl tracking-wide text-field-900 mobile-small:text-2xl">{news.title}</h3>
                   <p className="mt-2 text-sm text-field-700">{news.summary}</p>
@@ -84,7 +84,7 @@ const NewsPage = () => {
         <p className="text-sm text-field-600">Nessuna news per questa categoria.</p>
       )}
 
-      <section className="rounded-2xl border border-field-200 bg-field-50 p-6">
+      <section className="rounded-2xl border border-field-400 bg-white p-6">
         <h3 className="font-display text-2xl tracking-wide text-field-900">Archivio storico</h3>
         <p className="mt-2 text-sm text-field-700">
           Le notizie pre-2025 sono mantenute in archivio consultabile, senza occupare lo spazio editoriale principale.

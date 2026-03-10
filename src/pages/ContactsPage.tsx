@@ -30,9 +30,9 @@ const ContactsPage = () => {
 
       {/* Map — full-width, prominent */}
       <section className="overflow-hidden rounded-2xl border border-field-200">
-        <div className="bg-field-900 px-4 py-3">
+        <div className="bg-field-700 px-4 py-3">
           <p className="text-sm font-semibold text-white">{contacts.mapLabel}</p>
-          <p className="text-xs text-field-300">{contacts.address}</p>
+          <p className="text-xs text-field-200">{contacts.address}</p>
         </div>
         <iframe
           title="Mappa Campo Barut - Centro Sportivo Domio"

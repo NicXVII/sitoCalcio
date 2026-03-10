@@ -138,9 +138,9 @@ const SponsorsPage = () => {
       )}
 
       {/* CTA */}
-      <section className="rounded-3xl bg-field-900 p-6 tablet-small:p-8">
+      <section className="rounded-3xl bg-field-700 p-6 tablet-small:p-8">
         <h3 className="font-display text-3xl tracking-wide text-white">Diventa sponsor</h3>
-        <p className="mt-2 max-w-3xl text-field-200/85">
+        <p className="mt-2 max-w-3xl text-field-100">
           Partnership su maglie, eventi, media digitali e settore giovanile con piani scalabili per piccole e grandi
           aziende.
         </p>
