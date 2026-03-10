@@ -4,7 +4,6 @@ export const mainNavItems: NavItem[] = [
   { label: 'Home', path: '/' },
   { label: 'La Societa', path: '/societa' },
   { label: 'Squadre', path: '/squadre' },
-  { label: 'Risultati', path: '/risultati' },
   { label: 'News', path: '/news' },
   { label: 'Sponsor', path: '/sponsor' },
   { label: 'Contatti', path: '/contatti' }

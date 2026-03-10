@@ -8,7 +8,6 @@ export type Team = {
   category: string;
   description: string;
   training: string;
-  nextMatch: string;
   modules: string[];
 };
 

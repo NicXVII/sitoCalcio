@@ -4,7 +4,6 @@ import SiteLayout from './layout/SiteLayout';
 
 const HomePage = lazy(() => import('./pages/HomePage'));
 const SocietyPage = lazy(() => import('./pages/SocietyPage'));
-const ResultsPage = lazy(() => import('./pages/ResultsPage'));
 const TeamsPage = lazy(() => import('./pages/TeamsPage'));
 const NewsPage = lazy(() => import('./pages/NewsPage'));
 const SponsorsPage = lazy(() => import('./pages/SponsorsPage'));
@@ -25,7 +24,6 @@ const App = () => {
           <Route element={<SiteLayout />}>
             <Route path="/" element={<HomePage />} />
             <Route path="/societa" element={<SocietyPage />} />
-            <Route path="/risultati" element={<ResultsPage />} />
             <Route path="/squadre" element={<TeamsPage />} />
             <Route path="/news" element={<NewsPage />} />
             <Route path="/sponsor" element={<SponsorsPage />} />

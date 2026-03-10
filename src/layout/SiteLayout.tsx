@@ -276,7 +276,6 @@ const SiteLayout = () => {
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/35">Link rapidi</p>
               <nav className="mt-3 grid gap-1.5">
                 <Link to="/squadre" className="text-sm text-white/60 transition hover:text-white">Squadre</Link>
-                <Link to="/risultati" className="text-sm text-white/60 transition hover:text-white">Risultati</Link>
                 <Link to="/news" className="text-sm text-white/60 transition hover:text-white">News</Link>
                 <Link to="/sponsor" className="text-sm text-white/60 transition hover:text-white">Sponsor</Link>
                 <Link to="/contatti" className="text-sm text-white/60 transition hover:text-white">Contatti</Link>

@@ -52,16 +52,7 @@ const TeamsPage = () => {
         </div>
       </section>
 
-      <section className="rounded-2xl border border-field-200 bg-white p-6">
-        <h3 className="font-display text-2xl tracking-wide text-field-900">Widget risultati e classifiche</h3>
-        <p className="mt-3 text-sm text-field-700">
-          Area predisposta per integrazione automatica FIGC/LND: risultati live, classifica aggiornata e prossimo
-          turno.
-        </p>
-        <div className="mt-4 rounded-xl border border-dashed border-field-300 bg-field-50 p-5 text-sm text-field-600">
-          Placeholder tecnico: integrare script/widget ufficiale FIGC per categoria.
-        </div>
-      </section>
+
     </div>
   );
 };

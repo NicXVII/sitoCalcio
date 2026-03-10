@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import type { Team } from '../data/types';
 
 type TeamCardProps = {
@@ -20,12 +19,9 @@ const TeamCard = ({ team, variant = 'agonistico' }: TeamCardProps) => {
           </span>
         </div>
         <p className="text-sm text-field-700 mobile-small:text-base">{team.description}</p>
-        <div className="space-y-2 text-sm">
-          <p className="flex items-center gap-2 text-field-700">
+        <div className="text-sm">
+          <p className="flex items-center gap-2 rounded-xl border border-field-100 bg-field-50/60 px-3 py-2 text-field-700">
             <span className="font-semibold text-field-800">Allenamenti:</span> {team.training}
-          </p>
-          <p className="rounded-xl border border-field-100 bg-field-50/60 px-3 py-2 text-field-700">
-            <span className="font-semibold text-field-800">Prossimo:</span> {team.nextMatch}
           </p>
         </div>
       </div>
@@ -38,12 +34,7 @@ const TeamCard = ({ team, variant = 'agonistico' }: TeamCardProps) => {
             </li>
           ))}
         </ul>
-        <Link
-          to="/risultati"
-          className="rounded-full bg-field-800 px-4 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-field-700"
-        >
-          Risultati →
-        </Link>
+
       </div>
     </article>
   );

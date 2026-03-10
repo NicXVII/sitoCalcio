@@ -46,30 +46,21 @@ const HomePage = () => {
               </div>
             </div>
 
-            {/* Match card */}
+            {/* Info card */}
             <div className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm">
-              <p className="text-center text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-field-400">Prossima gara</p>
-              <div className="mt-4 flex items-center justify-center gap-4 mobile-small:gap-5">
-                <div className="text-center">
-                  <ClubLogo
-                    alt="Logo Domio"
-                    loading="eager"
-                    fetchPriority="low"
-                    className="mx-auto h-14 w-14 rounded-xl border border-white/15 bg-white p-1.5 object-contain mobile-small:h-16 mobile-small:w-16"
-                  />
-                  <p className="mt-2 font-display text-lg uppercase tracking-wide text-white mobile-small:text-xl">Domio</p>
-                </div>
-                <div className="flex flex-col items-center">
-                  <span className="rounded-lg bg-field-500/20 px-3 py-1.5 font-display text-lg text-field-300">VS</span>
-                </div>
-                <div className="text-center">
-                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-xl border border-white/15 bg-white/10 mobile-small:h-16 mobile-small:w-16">
-                    <span className="text-2xl font-bold text-white/60">M</span>
-                  </div>
-                  <p className="mt-2 font-display text-lg uppercase tracking-wide text-white mobile-small:text-xl">Muggia</p>
+              <div className="flex flex-col items-center gap-4">
+                <ClubLogo
+                  alt="Logo Domio"
+                  loading="eager"
+                  fetchPriority="low"
+                  className="h-20 w-20 rounded-xl border border-white/15 bg-white p-2 object-contain mobile-small:h-24 mobile-small:w-24"
+                />
+                <div className="space-y-2 text-center">
+                  <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-field-400">Stagione 2025/2026</p>
+                  <p className="font-display text-2xl tracking-wide text-white mobile-small:text-3xl">9 formazioni attive</p>
+                  <p className="text-sm text-field-300/80">Dall'agonistico al settore di base</p>
                 </div>
               </div>
-              <p className="mt-4 text-center text-sm text-field-300/80">Dom. 15 marzo · ore 15:30 · Campo Barut</p>
             </div>
           </div>
         </div>
@@ -77,16 +68,6 @@ const HomePage = () => {
 
       {/* Quick-access strip */}
       <section className="grid grid-cols-2 gap-3 tablet-small:grid-cols-4">
-        <Link to="/risultati" className="group rounded-2xl border border-field-200 bg-white p-4 transition hover:border-field-300 hover:shadow-md">
-          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-field-600">Ultimo risultato</p>
-          <p className="mt-1 font-display text-xl text-field-900 group-hover:text-field-700">Domio 2 – 1</p>
-          <p className="text-sm text-field-600">Muggia 1967</p>
-        </Link>
-        <Link to="/risultati" className="group rounded-2xl border border-field-200 bg-white p-4 transition hover:border-field-300 hover:shadow-md">
-          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-field-600">Classifica</p>
-          <p className="mt-1 font-display text-xl text-field-900 group-hover:text-field-700">3a Categoria</p>
-          <p className="text-sm text-field-600">Girone A</p>
-        </Link>
         <Link to="/squadre" className="group rounded-2xl border border-field-200 bg-white p-4 transition hover:border-field-300 hover:shadow-md">
           <p className="text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-field-600">Squadre attive</p>
           <p className="mt-1 font-display text-xl text-field-900 group-hover:text-field-700">9 formazioni</p>
