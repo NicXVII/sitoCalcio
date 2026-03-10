@@ -11,6 +11,8 @@ const tagColorMap: Record<string, string> = {
   'Comunicati': 'bg-field-600 text-white',
 };
 
+const premiumZoomTags = ['Comunicati', 'Prime Squadre', 'Settore Giovanile'];
+
 const NewsPage = () => {
   usePageTitle('News');
   const [activeTag, setActiveTag] = useState('Tutti');
@@ -51,7 +53,13 @@ const NewsPage = () => {
       {featured ? (
         <>
           {/* Featured article */}
-          <article className="overflow-hidden rounded-3xl border border-field-200 bg-field-700 p-5 mobile-small:p-6 tablet-small:p-8">
+          <article
+            className={`overflow-hidden rounded-3xl border border-field-200 bg-field-700 p-5 transition duration-300 mobile-small:p-6 tablet-small:p-8 ${
+              premiumZoomTags.includes(featured.tag)
+                ? 'transform-gpu hover:-translate-y-0.5 hover:scale-[1.02] hover:shadow-2xl hover:shadow-field-900/35'
+                : 'hover:shadow-lg'
+            }`}
+          >
             <div className="flex flex-wrap items-center gap-2">
               <span className={`rounded-full px-2.5 py-0.5 text-[0.6rem] font-semibold uppercase tracking-[0.14em] ${tagColorMap[featured.tag] ?? 'bg-field-600 text-white'}`}>
                 {featured.tag}
@@ -66,7 +74,10 @@ const NewsPage = () => {
           {rest.length > 0 && (
             <div className="grid gap-4 tablet-small:grid-cols-2 desktop:grid-cols-3">
               {rest.map((news) => (
-                <article key={news.title} className="rounded-2xl border border-field-200 bg-white p-4 mobile-small:p-5">
+                <article
+                  key={news.title}
+                  className="rounded-2xl border border-field-200 bg-white p-4 transition duration-300 hover:shadow-md mobile-small:p-5"
+                >
                   <div className="flex flex-wrap items-center gap-2">
                     <span className={`rounded-full px-2.5 py-0.5 text-[0.6rem] font-semibold uppercase tracking-[0.14em] ${tagColorMap[news.tag] ?? 'bg-field-600 text-white'}`}>
                       {news.tag}

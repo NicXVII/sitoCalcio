@@ -151,7 +151,10 @@ const HomePage = () => {
 
         <div className="grid gap-4 tablet-small:grid-cols-2 desktop:grid-cols-3">
           {newsHighlights.map((news) => (
-            <article key={news.title} className="rounded-2xl border border-white/15 bg-white/95 p-4 mobile-small:p-6">
+            <article
+              key={news.title}
+              className="rounded-2xl border border-white/15 bg-white/95 p-4 transition duration-300 hover:shadow-md mobile-small:p-6"
+            >
               <div className="flex flex-wrap items-center gap-2">
                 <span className="rounded-full bg-field-800 px-2.5 py-0.5 text-[0.6rem] font-semibold uppercase tracking-[0.14em] text-white">
                   {news.tag}
