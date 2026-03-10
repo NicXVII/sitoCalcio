@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import ClubLogo from '../components/ClubLogo';
-import SectionTitle from '../components/SectionTitle';
 import { newsHighlights, values } from '../data/newsData';
 import { usePageTitle } from '../hooks/usePageTitle';
 
@@ -11,7 +10,6 @@ const HomePage = () => {
     <div className="space-y-10 mobile:space-y-12 sm:space-y-14">
       {/* Hero — clean, light, professional */}
       <section className="relative -mx-3 -mt-6 overflow-hidden bg-gradient-to-br from-field-50 via-white to-field-100 mobile-small:-mx-4 mobile-small:-mt-8 mobile:-mx-5 sm:-mx-6 sm:-mt-10 tablet-large:-mx-8 desktop:-mt-12">
-        {/* Accent line */}
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-field-500 via-field-400 to-field-500" aria-hidden="true" />
 
         <div className="relative mx-auto max-w-7xl px-3 pb-10 pt-10 mobile-small:px-4 mobile-small:pb-12 mobile-small:pt-12 mobile:px-5 sm:px-6 sm:pb-16 sm:pt-14 tablet-large:px-8 tablet-large:pb-20 tablet-large:pt-16 ultrawide:max-w-[1536px]">
@@ -43,7 +41,6 @@ const HomePage = () => {
               </div>
             </div>
 
-            {/* Info card */}
             <div className="rounded-2xl border border-field-200 bg-field-800 p-5 shadow-lg">
               <div className="flex flex-col items-center gap-4">
                 <ClubLogo
@@ -64,41 +61,43 @@ const HomePage = () => {
       </section>
 
       {/* Quick-access strip */}
-      <section className="grid grid-cols-2 gap-3 tablet-small:grid-cols-4">
-        <Link to="/squadre" className="group rounded-2xl border border-field-200 bg-white p-4 transition hover:border-field-300 hover:shadow-md">
-          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-field-600">Squadre attive</p>
-          <p className="mt-1 font-display text-xl text-field-900 group-hover:text-field-700">9 formazioni</p>
-          <p className="text-sm text-field-600">Agonistico e base</p>
-        </Link>
-        <Link to="/contatti" className="group rounded-2xl border border-field-200 bg-white p-4 transition hover:border-field-300 hover:shadow-md">
-          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-field-600">Iscrizioni aperte</p>
-          <p className="mt-1 font-display text-xl text-field-900 group-hover:text-field-700">2025/2026</p>
-          <p className="text-sm text-field-600">Tutte le categorie</p>
-        </Link>
+      <section className="rounded-3xl border border-[#c9d9b7] bg-gradient-to-r from-[#f7fbf3] via-[#edf4e6] to-[#e4efdd] p-4 mobile-small:p-5">
+        <div className="grid grid-cols-2 gap-3 tablet-small:grid-cols-4">
+          <Link to="/squadre" className="group rounded-2xl border border-[#bfd2ab] bg-[#f1f8e8] p-4 transition hover:-translate-y-0.5 hover:border-[#a8c58d] hover:shadow-md">
+            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-field-700">Squadre attive</p>
+            <p className="mt-1 font-display text-xl text-field-900 group-hover:text-field-600">9 formazioni</p>
+            <p className="text-sm text-field-700">Agonistico e base</p>
+          </Link>
+          <Link to="/contatti" className="group rounded-2xl border border-[#b6cabc] bg-[#edf4f0] p-4 transition hover:-translate-y-0.5 hover:border-[#95b4a1] hover:shadow-md">
+            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-field-700">Iscrizioni aperte</p>
+            <p className="mt-1 font-display text-xl text-field-900 group-hover:text-field-600">2025/2026</p>
+            <p className="text-sm text-field-700">Tutte le categorie</p>
+          </Link>
+        </div>
       </section>
 
       {/* Story card */}
-      <section className="rounded-3xl border border-field-200 bg-white p-5 mobile-small:p-6 tablet-small:p-8">
+      <section className="rounded-3xl border border-[#d8d3c6] bg-gradient-to-br from-[#f8f5ef] via-[#f2eee5] to-[#ebe5d9] p-5 mobile-small:p-6 tablet-small:p-8">
         <div className="grid gap-5 tablet-small:grid-cols-[1.2fr_0.8fr] tablet-small:items-center">
           <div>
-            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-field-600">La nostra storia</p>
-            <h2 className="mt-2 font-display text-3xl tracking-wide text-field-900 mobile-small:text-4xl">
+            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[#6e6757]">La nostra storia</p>
+            <h2 className="mt-2 font-display text-3xl tracking-wide text-[#2b2a27] mobile-small:text-4xl">
               Dal 22 maggio 1972, una comunita in movimento
             </h2>
-            <p className="mt-3 text-sm text-field-700 mobile-small:text-base">
+            <p className="mt-3 text-sm text-[#534f47] mobile-small:text-base">
               Dall'atto costitutivo davanti al Notaio Giovanni Tomasi, passando per la costruzione e la perdita del
               primo campo, fino all'intitolazione a Marino Barut: la storia del Domio e il cuore del club.
             </p>
           </div>
-          <div className="rounded-2xl border border-field-100 bg-field-50/60 p-4">
-            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-field-600">Focus storico</p>
-            <p className="mt-2 text-sm text-field-700">
+          <div className="rounded-2xl border border-[#ddd4c3] bg-white/85 p-4">
+            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[#6e6757]">Focus storico</p>
+            <p className="mt-2 text-sm text-[#534f47]">
               I 17 soci fondatori, il supporto di Stanko e MOVITER, la Promozione 1999-2000 e il Torneo internazionale
               giovanile.
             </p>
             <Link
               to="/societa"
-              className="mt-4 inline-flex rounded-full bg-field-800 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-white hover:bg-field-700"
+              className="mt-4 inline-flex rounded-full bg-[#4c5c45] px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-white hover:bg-[#3f4c39]"
             >
               Leggi la storia completa
             </Link>
@@ -132,21 +131,27 @@ const HomePage = () => {
       </section>
 
       {/* News */}
-      <section className="space-y-6">
+      <section className="space-y-6 rounded-3xl border border-field-700 bg-gradient-to-br from-field-800 via-field-700 to-field-600 p-5 mobile-small:p-6 tablet-small:p-8">
         <div className="flex flex-wrap items-end justify-between gap-3">
-          <SectionTitle
-            eyebrow="News"
-            title="In evidenza"
-            description="Comunicazioni e aggiornamenti dal club."
-          />
-          <Link to="/news" className="rounded-full border border-field-500 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-field-700 transition hover:bg-white">
+          <div className="space-y-3">
+            <p className="inline-flex rounded-full border border-white/30 bg-white/10 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-white/90 mobile-small:text-xs">
+              News
+            </p>
+            <h2 className="font-display text-3xl tracking-wide text-white mobile-small:text-4xl sm:text-5xl">
+              In evidenza
+            </h2>
+            <p className="max-w-3xl text-sm text-field-100 mobile-small:text-base sm:text-lg">
+              Comunicazioni e aggiornamenti dal club.
+            </p>
+          </div>
+          <Link to="/news" className="rounded-full border border-white/40 bg-white/15 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-white/25">
             Tutte le news →
           </Link>
         </div>
 
         <div className="grid gap-4 tablet-small:grid-cols-2 desktop:grid-cols-3">
           {newsHighlights.map((news) => (
-            <article key={news.title} className="rounded-2xl border border-field-200 bg-white p-4 mobile-small:p-6">
+            <article key={news.title} className="rounded-2xl border border-white/15 bg-white/95 p-4 mobile-small:p-6">
               <div className="flex flex-wrap items-center gap-2">
                 <span className="rounded-full bg-field-800 px-2.5 py-0.5 text-[0.6rem] font-semibold uppercase tracking-[0.14em] text-white">
                   {news.tag}
